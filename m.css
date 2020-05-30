@@ -1,0 +1,22 @@
+.top{
+    width: 100%;
+    height: 120px;
+    position: absolute;
+
+    
+}
+.main{
+    position: absolute;
+    width: 100%;
+    top: 120px;
+    bottom: 120px;
+
+    height: auto;
+}
+.bottom{
+    position: absolute;
+    bottom: 0;//别漏了
+    width: 100%;
+    height: 120px;
+
+}
