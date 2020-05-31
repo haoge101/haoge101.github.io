@@ -645,9 +645,6 @@ input, select, textarea {
 		}
 
 		body.is-article-visible #bg:after {
-			/*ziji tianjia*/
-			background-image: url("https://haoge101.github.io/images/bg1.jpg");
-			/*ziji tianjia jiesu*/
 			-moz-transform: scale(1.0825);
 			-webkit-transform: scale(1.0825);
 			-ms-transform: scale(1.0825);
