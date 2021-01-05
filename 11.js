@@ -131,14 +131,10 @@ function getRandomUrl(htmlurl){
 // 模式 窗口打开s
 function JsMod(htmlurl,tmpWidth,tmpHeight){
 	htmlurl=getRandomUrl(htmlurl);
-	var newwin = window.showModalDialog(htmlurl,window,"dialogWidth:"+tmpWidth+"px;status:no;dialogHeight:"+tmpHeight+"px");
- 
-	if(newwin == "refresh" || newwin == "ok"){		
-		if(getOs() == "chrome"){
-			window.location.href = window.location.href;// 谷歌浏览器要用此方法刷新
-		}else{
-			window.location.href = window.location.href;
-		}
+
+		
+	window.open(htmlurl);
+		
 	}
 }
 // 模式 窗口打开s只要打开都刷新父窗口
