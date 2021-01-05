@@ -135,7 +135,7 @@ function JsMod(htmlurl,tmpWidth,tmpHeight){
  
 	if(newwin == "refresh" || newwin == "ok"){		
 		if(getOs() == "chrome"){
-			window.location.reload();// 谷歌浏览器要用此方法刷新
+			window.location.href = window.location.href;// 谷歌浏览器要用此方法刷新
 		}else{
 			window.location.href = window.location.href;
 		}
