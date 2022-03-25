@@ -60,7 +60,7 @@ str = """
 						<div class="content">
 							<div class="inner">
 								<h1>Ding Zihao's Personnel WebSite</h1>
-								<h4><span class="text" ></span></h4>
+								<h5><span class="text" ></span></h5>
 							</div>
 						</div>
 						<nav>
@@ -130,7 +130,7 @@ str2 = """
                     xiaBiao=0; 
                 }
             }
-        },100)
+        },150)
     </script>
 			
 	</body>
