@@ -9,15 +9,7 @@
 		<link rel="stylesheet" href="https://www.dingzihao.cn/assets/css/main.css">
 		<noscript><link rel="stylesheet" href="https://www.dingzihao.cn/assets/css/noscript.css"></noscript>
 		<style>
-        body{
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: rgb(43, 52, 82);
-        }
         .text{
-            font-family: 'fangsong';
             display: inline-block;
           position: relative;
           font-size: 40px;
@@ -35,10 +27,17 @@
             background-color: #fff;
             animation: san 0.5s steps(1) infinite;
         }
+	@keyframes san{
+            0%,100%{
+                background-color: #fff;
+            }
+            50%{
+               background-color: transparent;
+            }
+        }
     </style>
 	</head>
 	<body class="is-preload">
-
 		<!-- Wrapper -->
 			<div id="wrapper">
 				<!-- Header -->
@@ -49,8 +48,7 @@
 						<div class="content">
 							<div class="inner">
 								<h1>Ding Zihao's Personnel WebSite</h1>
-								<h2><span class="text" ></span></h2>
-								<h3>"People always prepare for the worst but hope for the best."</h3>
+								<h3><span class="text" ></span></h3>
 							</div>
 						</div>
 						<nav>
@@ -61,28 +59,21 @@
 							</ul>
 						</nav>
 					</header>
-
 				<!-- Main -->
 					<div id="main">
-
 						<!-- Intro -->
 							<article id="intro">
 								<h2 class="major">Anonymous</h2>
 								<span class="image main"><img src="https://www.dingzihao.cn/images/pic01.jpg" alt=""></span>
 								<p>Nothing is here.</p>
 							</article>
-
 						
-
 					</div>
-
 				<!-- Footer -->
 					<footer id="footer">
 						<p class="copyright">&copy; Welcome to <a href="https://www.dingzihao.cn/" target="_blank" title="Ding Zihao's personnel website">DingZihao.cn</a> - This website hosted on <a href="https://www.github.com/" title="Github" target="_blank">Github</a></p>
 					</footer>
-
 			</div>
-
 		<!-- BG -->
 			<div id="bg"></div>
 			
@@ -94,8 +85,7 @@
 			<script src="https://www.dingzihao.cn/assets/js/main.js"></script>
 			<script>
         const text = document.querySelector('.text');
-        const txt  =["北极光之夜。","夜越黑，星星越亮。","答案在风中飘荡。"]; 
-        
+        const txt  =["HI, THERE!", "People always prepare for the worst but hope for the best."];       
         var index=0;
         var xiaBiao= 0;
         var huan = true;
@@ -110,7 +100,6 @@
                 text.innerHTML = txt[xiaBiao].slice(0,index--);
                 console.log(index);
             }
-
             if(index==txt[xiaBiao].length+3)
             {
                 huan = false;
@@ -125,9 +114,7 @@
                     xiaBiao=0; 
                 }
             }
-
         },200)
-
     </script>
 			
 	</body>
