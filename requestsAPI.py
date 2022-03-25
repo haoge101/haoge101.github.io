@@ -33,10 +33,10 @@ str = """
 						<div class="content">
 							<div class="inner">
 								<h1>Ding Zihao's Personnel WebSite</h1>
-								<h2>
+								<h2>"
 """
 str2 = """
-</h2>
+"</h2>
 							</div>
 						</div>
 						<nav>
