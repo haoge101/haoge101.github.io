@@ -8,6 +8,7 @@ r = json.loads(r.text)    # 返回url地址
 r1 = r['picture4']
 r2 = requests.get(r1)
 open('./img.jpg', 'wb').write(r2.content)
+r3 = r['content']
 
 str = """
 <!DOCTYPE HTML>
@@ -20,7 +21,6 @@ str = """
 		<link rel="stylesheet" href="https://www.dingzihao.cn/assets/css/main.css">
 		<noscript><link rel="stylesheet" href="https://www.dingzihao.cn/assets/css/noscript.css"></noscript>
 		<style>
-
         .text{
             display: inline-block;
           position: relative;
@@ -46,12 +46,10 @@ str = """
             50%{
                background-color: transparent;
             }
-
         }
     </style>
 	</head>
 	<body class="is-preload">
-
 		<!-- Wrapper -->
 			<div id="wrapper">
 				<!-- Header -->
@@ -73,28 +71,21 @@ str = """
 							</ul>
 						</nav>
 					</header>
-
 				<!-- Main -->
 					<div id="main">
-
 						<!-- Intro -->
 							<article id="intro">
 								<h2 class="major">Anonymous</h2>
 								<span class="image main"><img src="https://www.dingzihao.cn/images/pic01.jpg" alt=""></span>
 								<p>Nothing is here.</p>
 							</article>
-
 						
-
 					</div>
-
 				<!-- Footer -->
 					<footer id="footer">
 						<p class="copyright">&copy; Welcome to <a href="https://www.dingzihao.cn/" target="_blank" title="Ding Zihao's personnel website">DingZihao.cn</a> - This website hosted on <a href="https://www.github.com/" title="Github" target="_blank">Github</a></p>
 					</footer>
-
 			</div>
-
 		<!-- BG -->
 			<div id="bg"></div>
 			
@@ -106,10 +97,11 @@ str = """
 			<script src="https://www.dingzihao.cn/assets/js/main.js"></script>
 			<script>
         const text = document.querySelector('.text');
-	"""
+"""
 
- t = '  const txt  \=[%s, %s];'%('HI, THERE!', r['content']) 
- str2 = """       
+t = '        const txt  =["%s", "%s"];'%('HI, THERE!', r3) 
+
+str2 = """       
         var index=0;
         var xiaBiao= 0;
         var huan = true;
@@ -124,7 +116,6 @@ str = """
                 text.innerHTML = txt[xiaBiao].slice(0,index--);
                 console.log(index);
             }
-
             if(index==txt[xiaBiao].length+3)
             {
                 huan = false;
@@ -139,9 +130,7 @@ str = """
                     xiaBiao=0; 
                 }
             }
-
         },200)
-
     </script>
 			
 	</body>
