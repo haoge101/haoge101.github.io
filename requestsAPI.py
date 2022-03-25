@@ -9,7 +9,7 @@ r1 = r['picture4']
 r2 = requests.get(r1)
 open('./img.jpg', 'wb').write(r2.content)
 
-t = r['content']
+t = '								<h2>"' + r['content'] + '"</h2>'
 str = """
 <!DOCTYPE HTML>
 <html>
@@ -33,10 +33,8 @@ str = """
 						<div class="content">
 							<div class="inner">
 								<h1>Ding Zihao's Personnel WebSite</h1>
-								<h2>"
 """
 str2 = """
-"</h2>
 							</div>
 						</div>
 						<nav>
