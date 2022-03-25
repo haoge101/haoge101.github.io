@@ -8,6 +8,34 @@
 		<link rel="shortcut icon" href="https://www.dingzihao.cn/images/c.png" />
 		<link rel="stylesheet" href="https://www.dingzihao.cn/assets/css/main.css">
 		<noscript><link rel="stylesheet" href="https://www.dingzihao.cn/assets/css/noscript.css"></noscript>
+		<style>
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(43, 52, 82);
+        }
+        .text{
+            font-family: 'fangsong';
+            display: inline-block;
+          position: relative;
+          font-size: 40px;
+          height: 60px;
+          line-height: 60px;
+          color: rgb(245, 245, 245);
+        }
+        .text::after{
+            content: '';
+            position: absolute;
+            right: -10px;
+            top: 5px;
+            height: 50px;
+            width: 3px;     
+            background-color: #fff;
+            animation: san 0.5s steps(1) infinite;
+        }
+    </style>
 	</head>
 	<body class="is-preload">
 
@@ -21,6 +49,7 @@
 						<div class="content">
 							<div class="inner">
 								<h1>Ding Zihao's Personnel WebSite</h1>
+								<h2><span class="text" ></span></h2>
 								<h3>"People always prepare for the worst but hope for the best."</h3>
 							</div>
 						</div>
@@ -63,6 +92,43 @@
 			<script src="https://www.dingzihao.cn/assets/js/breakpoints.min.js"></script>
 			<script src="https://www.dingzihao.cn/assets/js/util.js"></script>
 			<script src="https://www.dingzihao.cn/assets/js/main.js"></script>
+			<script>
+        const text = document.querySelector('.text');
+        const txt  =["北极光之夜。","夜越黑，星星越亮。","答案在风中飘荡。"]; 
+        
+        var index=0;
+        var xiaBiao= 0;
+        var huan = true;
+     
+        setInterval(function(){
+           
+            if(huan){      
+                text.innerHTML = txt[xiaBiao].slice(0,++index);
+                console.log(index);
+            }
+            else{
+                text.innerHTML = txt[xiaBiao].slice(0,index--);
+                console.log(index);
+            }
+
+            if(index==txt[xiaBiao].length+3)
+            {
+                huan = false;
+            }
+            else if(index<0)
+            {
+                index = 0;
+                huan = true;
+                xiaBiao++;
+                if(xiaBiao>=txt.length)
+                {
+                    xiaBiao=0; 
+                }
+            }
+
+        },200)
+
+    </script>
 			
 	</body>
 </html>
