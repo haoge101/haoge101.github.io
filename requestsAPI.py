@@ -22,7 +22,7 @@ str = """
 		<noscript><link rel="stylesheet" href="https://www.dingzihao.cn/assets/css/noscript.css"></noscript>
 		<style>
         .text{
-            display: inline-block;
+          display: inline-block;
           position: relative;
           font-size: 40px;
           height: 60px;
@@ -60,7 +60,7 @@ str = """
 						<div class="content">
 							<div class="inner">
 								<h1>Ding Zihao's Personnel WebSite</h1>
-								<h3><span class="text" ></span></h3>
+								<h4><span class="text" ></span></h4>
 							</div>
 						</div>
 						<nav>
@@ -130,7 +130,7 @@ str2 = """
                     xiaBiao=0; 
                 }
             }
-        },200)
+        },100)
     </script>
 			
 	</body>
