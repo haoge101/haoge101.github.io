@@ -20,34 +20,6 @@ str = """
 		<link rel="shortcut icon" href="https://www.dingzihao.cn/images/c.png" />
 		<link rel="stylesheet" href="https://www.dingzihao.cn/assets/css/main.css">
 		<noscript><link rel="stylesheet" href="https://www.dingzihao.cn/assets/css/noscript.css"></noscript>
-		<style>
-        .text{
-          display: inline-block;
-          position: relative;
-          font-size: 40px;
-          height: 60px;
-          line-height: 60px;
-          color: rgb(245, 245, 245);
-        }
-        .text::after{
-            content: '';
-            position: relative;
-            right: -10px;
-            top: 5px;
-            height: 50px;
-            width: 3px;     
-            background-color: #fff;
-            animation: san 0.5s steps(1) infinite;
-        }
-	@keyframes san{
-            0%,100%{
-                background-color: #fff;
-            }
-            50%{
-               background-color: transparent;
-            }
-        }
-    </style>
 	</head>
 	<body class="is-preload">
 		<!-- Wrapper -->
@@ -60,7 +32,7 @@ str = """
 						<div class="content">
 							<div class="inner">
 								<h1>Ding Zihao's Personnel WebSite</h1>
-								<h5><span class="text" ></span></h5>
+								<h3><span class="text" ></span></h3>
 							</div>
 						</div>
 						<nav>
