@@ -32,7 +32,7 @@ str = """
 						<div class="content">
 							<div class="inner">
 								<h1>Ding Zihao's Personnel WebSite</h1>
-								<h3><span class="text" ></span></h3>
+								<h2><span class="texttype" ></span></h2>
 							</div>
 						</div>
 						<nav>
@@ -68,7 +68,7 @@ str = """
 			<script src="https://www.dingzihao.cn/assets/js/util.js"></script>
 			<script src="https://www.dingzihao.cn/assets/js/main.js"></script>
 			<script>
-        const text = document.querySelector('.text');
+        const text = document.querySelector('.texttype');
 """
 
 t = '        const txt  =["%s", "%s"];'%('HI, THERE!', r3) 
