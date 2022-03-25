@@ -33,7 +33,7 @@ jobs:
         git config --global user.email "haoge101@163.com" # 改成GitHub账号的邮箱
         git add "img.jpg"
         git commit -m 'upload img.jpg"
-        git push -u origin main && echo "Git Pushed Origin" # runner改成存放图片的分支
+        git push -u origin master && echo "Git Pushed Origin" # runner改成存放图片的分支
     - name: Failure test
       if: failure()
       run: | 
