@@ -106,7 +106,7 @@ str = """
         const text = document.querySelector('.text');
 	"""
 
- t = '       const txt  =["HI THERE!",' + r['content'] + '];' 
+ t = """const txt  =["HI THERE!",""" + r['content'] + """];""" 
  str2 = """       
         var index=0;
         var xiaBiao= 0;
