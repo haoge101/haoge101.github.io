@@ -31,7 +31,7 @@ str = """
         }
         .text::after{
             content: '';
-            position: absolute;
+            position: relative;
             right: -10px;
             top: 5px;
             height: 50px;
