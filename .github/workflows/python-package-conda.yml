@@ -22,8 +22,6 @@ jobs:
       uses: actions/setup-python@v1.1.1 
     - name: Install Dependence
       run: pip install requests
-    - name: Install Json
-      run: pip install json
     - name: Run requestsAPI.py
       run: python requestsAPI.py
     - name: list
