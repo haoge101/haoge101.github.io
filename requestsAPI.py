@@ -20,15 +20,8 @@ str = """
 		<link rel="stylesheet" href="https://www.dingzihao.cn/assets/css/main.css">
 		<noscript><link rel="stylesheet" href="https://www.dingzihao.cn/assets/css/noscript.css"></noscript>
 		<style>
-        body{
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: rgb(43, 52, 82);
-        }
+
         .text{
-            font-family: 'fangsong';
             display: inline-block;
           position: relative;
           font-size: 40px;
@@ -45,6 +38,15 @@ str = """
             width: 3px;     
             background-color: #fff;
             animation: san 0.5s steps(1) infinite;
+        }
+	@keyframes san{
+            0%,100%{
+                background-color: #fff;
+            }
+            50%{
+               background-color: transparent;
+            }
+
         }
     </style>
 	</head>
@@ -106,7 +108,7 @@ str = """
         const text = document.querySelector('.text');
 	"""
 
- t = """const txt  =["HI THERE!",""" + r['content'] + """];""" 
+ t = '  const txt  =[%s, %s];'%('HI, THERE!', r['content']) 
  str2 = """       
         var index=0;
         var xiaBiao= 0;
