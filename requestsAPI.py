@@ -9,7 +9,6 @@ r1 = r['picture4']
 r2 = requests.get(r1)
 open('./img.jpg', 'wb').write(r2.content)
 
-t = '								<h3>"' + r['content'] + '"</h3>'
 str = """
 <!DOCTYPE HTML>
 <html>
@@ -61,9 +60,7 @@ str = """
 						<div class="content">
 							<div class="inner">
 								<h1>Ding Zihao's Personnel WebSite</h1>
-								<h2><span class="text" ></span></h2>
-"""
-str2 = """
+								<h3><span class="text" ></span></h3>
 							</div>
 						</div>
 						<nav>
@@ -107,8 +104,10 @@ str2 = """
 			<script src="https://www.dingzihao.cn/assets/js/main.js"></script>
 			<script>
         const text = document.querySelector('.text');
-        const txt  =["北极光之夜。","夜越黑，星星越亮。","答案在风中飘荡。"]; 
-        
+	"""
+
+ t = '       const txt  =["HI THERE!",' + r['content'] + '];' 
+ str2 = """       
         var index=0;
         var xiaBiao= 0;
         var huan = true;
