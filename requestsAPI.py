@@ -9,7 +9,7 @@ r1 = r['picture4']
 r2 = requests.get(r1)
 open('./img.jpg', 'wb').write(r2.content)
 
-t = '								<h2>"' + r['content'] + '"</h2>'
+t = '								<h3>"' + r['content'] + '"</h3>'
 str = """
 <!DOCTYPE HTML>
 <html>
