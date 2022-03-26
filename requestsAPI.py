@@ -31,7 +31,7 @@ str = """
 						</div>
 						<div class="content">
 							<div class="inner">
-								<h1>Ding Zihao's Personnel WebSite</h1>
+								<h1>丁子豪的茅草屋</h1>
 								<h2><span class="texttype" ></span></h2>
 							</div>
 						</div>
