@@ -11,7 +11,7 @@ open('./img.jpg', 'wb').write(r2.content)
 r3 = r['content']
 
 str="""
-<script>
+$(function(){
         const text = document.querySelector('.texttype');
 """
 t="""
@@ -47,7 +47,7 @@ str2="""
                 }
             }
         },150)
-</script>
+});
 """
 
 f = open('roll.js', 'w')
