@@ -1,5 +1,5 @@
 
-<script>
+$(function(){
         const text = document.querySelector('.texttype');
 
         const txt  =["HI, THERE!", "They say the important thing in life isn't the destination. It's the journey."];   
@@ -33,4 +33,4 @@
                 }
             }
         },150)
-</script>
+});
