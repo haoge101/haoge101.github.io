@@ -64,14 +64,14 @@
 									var canvas = document.getElementById("mycanvas");
 									var ctx = canvas.getContext("2d");
 									ctx.fillStyle = "#CCCCCC";
-									ctx.fillRect(0, 0, 200, 50);
+									ctx.fillRect(0, 0, 200pt, 50pt);
 									//设置新画上的元素，
 									//将新的图像绘制到已有的图像上，
 									ctx.globalCompositeOperation = "destination-out";
 									canvas.onmousedown = function() {
 										canvas.onmousemove = function(event) {
 										ctx.beginPath();
-										ctx.arc(event.offsetX, event.offsetY, 60, 0, 7, false);
+										ctx.arc(event.offsetX, event.offsetY, 50, 0, 7, false);
 										ctx.fill();
 										}
 									}
