@@ -2,38 +2,39 @@
 	<head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
 	<title>学吧</title>
-        <script>
-            
-        </script>
-		<style>
-			.wxtip 
-			{
-				background: rgba(34,139,34.8);
-				text-align: center;
-				position: fixed;
-				left:0;
-				top: 0;
-				width: 100%;
-				height: 100%;
-				z-index: 998;
-				display: none;
-			}
-			.wxtip-icon 
-			{
-				width: 565px;
-				height: 411px;
-				background: url("https://haoge101.github.io/live_weixin.png") no-repeat;
-				display: block;
-				position: absolute;
-				right: 20px;
-				top: 20px;
-			}
-		</style>
+	<link href="https://haoge101.github.io/j/css/style.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="https://haoge101.github.io/j/js/jquery.min.js"></script>
+	<style>
+		.wxtip 
+		{
+			background: rgba(34,139,34.8);
+			text-align: center;
+			position: fixed;
+			left:0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 998;
+			display: none;
+		}
+		.wxtip-icon 
+		{
+			width: 565px;
+			height: 411px;
+			background: url("https://haoge101.github.io/live_weixin.png") no-repeat;
+			display: block;
+			position: absolute;
+			right: 20px;
+			top: 20px;
+		}
+	</style>
 	</head>
 	<body>
-		<div class="wxtip" id="Tip">
+		<div id="particles" id="Tip">
+  			<div class="overlay"></div>
 			<span class="wxtip-icon"></span>
 		</div>
+	<script type="text/javascript" src="https://haoge101.github.io/j/js/script.js"></script>	
 	</body>
 	<script>			
 		var ua = navigator.userAgent.toLowerCase();
