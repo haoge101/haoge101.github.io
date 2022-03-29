@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<link rel="shortcut icon" href="https://www.dingzihao.cn/images/c.png" />
 		<link rel="stylesheet" href="https://www.dingzihao.cn/assets/css/main.css">
-		<noscript><link rel="stylesheet" href="https://www.dingzihao.cn/assets/css/noscript.css"></noscript>	
+		<noscript><link rel="stylesheet" href="https://www.dingzihao.cn/assets/css/noscript.css"></noscript>
 	</head>
 	<body class="is-preload">
 		<!-- Wrapper -->
@@ -35,47 +35,8 @@
 						<!-- Intro -->
 							<article id="intro">
 								<h2 class="major">Anonymous</h2>
-								<style>
-									.yangs {
-										border:0.5px solid white;
-										width:200pt;
-										height:50pt;
-										font-size:24pt;
-										line-height:40x;
-										display: flex;
-										align-items: center;
-										justify-content: space-around;
-										flex-direction: column;
-										position:relative;
-										user-select:none;
-										//文字不被选中;
-									}
-									canvas {
-										position:absolute;
-										left:-1;
-										top:-1;
-									}
-								</style>
+								<span class="image main"><img src="https://www.dingzihao.cn/images/pic01.jpg" alt=""></span>
 								<p>Nothing is here.</p>
-								<div class="yangs">特等奖
-    									<canvas id="mycanvas" width="200pt" height="50pt"></canvas>
-								</div>
-								<script>
-									var canvas = document.getElementById("mycanvas");
-									var ctx = canvas.getContext("2d");
-									ctx.fillStyle = "#CCCCCC";
-									ctx.fillRect(0, 0, 200pt, 50pt);
-									//设置新画上的元素，
-									//将新的图像绘制到已有的图像上，
-									ctx.globalCompositeOperation = "destination-out";
-									canvas.onmousedown = function() {
-										canvas.onmousemove = function(event) {
-										ctx.beginPath();
-										ctx.arc(event.offsetX, event.offsetY, 50pt, 0, 7pt, false);
-										ctx.fill();
-										}
-									}
-								</script>
 							</article>
 						
 					</div>
