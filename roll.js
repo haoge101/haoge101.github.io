@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "Medicines cure diseases but only doctors can cure patients."];   
+const txt  =["HI, THERE!", "Live today as if there is no tomorrow."];   
 		
 var index=0;
 var xiaBiao= 0;
