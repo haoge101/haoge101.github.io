@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "Great men are not born great, they grow great."];   
+const txt  =["HI, THERE!", "Youth is not a time of life; it is a state of mind."];   
 		
 var index=0;
 var xiaBiao= 0;
