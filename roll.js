@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "The hard thing to do and the right thing to do are usually the same thing. "];   
+const txt  =["HI, THERE!", "To Mothers: Happy Mother's Day! Love yourself to gain more happiness!"];   
 		
 var index=0;
 var xiaBiao= 0;
