@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "The real danger is that if we hear enough lies, then we no longer recognize the truth at all."];   
+const txt  =["HI, THERE!", "Take a break from worrying about what you can't control. Live a little."];   
 		
 var index=0;
 var xiaBiao= 0;
