@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "There's no rhyme or reason to this life."];   
+const txt  =["HI, THERE!", "It is much more difficult to judge oneself than to judge others."];   
 		
 var index=0;
 var xiaBiao= 0;
