@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "Possesions are generally diminished by possession."];   
+const txt  =["HI, THERE!", "A person often meets his destiny on the road he took to avoid it."];   
 		
 var index=0;
 var xiaBiao= 0;
