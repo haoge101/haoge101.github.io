@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "To sin by silence when we should protest makes cowards out of men."];   
+const txt  =["HI, THERE!", "Miracles sometimes occur, but one has to work terribly for them."];   
 		
 var index=0;
 var xiaBiao= 0;
