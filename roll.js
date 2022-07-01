@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "The perfection of personality is the foundation, and the establishment of wealth is the end."];   
+const txt  =["HI, THERE!", "Without a great party, there will be no prosperity and well-being."];   
 		
 var index=0;
 var xiaBiao= 0;
