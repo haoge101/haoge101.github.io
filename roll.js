@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "Without a great party, there will be no prosperity and well-being."];   
+const txt  =["HI, THERE!", "Self-discipline is the first condition of freedom."];   
 		
 var index=0;
 var xiaBiao= 0;
