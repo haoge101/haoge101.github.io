@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "Self-discipline is the first condition of freedom."];   
+const txt  =["HI, THERE!", "Don't rush to deny yourself before you get the result."];   
 		
 var index=0;
 var xiaBiao= 0;
