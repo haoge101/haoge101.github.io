@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "Love rises in the east and falls in the west, romance lasts till death."];   
+const txt  =["HI, THERE!", "It's futile to rectify the past, but you can still change the future."];   
 		
 var index=0;
 var xiaBiao= 0;
