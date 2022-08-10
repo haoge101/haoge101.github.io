@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "Many people will walk in and out of your life, but only true friends will leave footprints in your heart."];   
+const txt  =["HI, THERE!", "Praise is like sunlight to the human spirit; we cannot flower and grow without it."];   
 		
 var index=0;
 var xiaBiao= 0;
