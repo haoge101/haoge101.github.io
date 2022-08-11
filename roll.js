@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "Praise is like sunlight to the human spirit; we cannot flower and grow without it."];   
+const txt  =["HI, THERE!", "The truth is a beautiful and terrible thing, and should therefore be treated with great caution."];   
 		
 var index=0;
 var xiaBiao= 0;
