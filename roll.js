@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "Death is not the end of life, forgetting is."];   
+const txt  =["HI, THERE!", "If time being of all things the most precious, wasting time must be the greatest prodigality."];   
 		
 var index=0;
 var xiaBiao= 0;
