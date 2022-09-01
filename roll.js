@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "Wisdom is to the mind what health is to the body."];   
+const txt  =["HI, THERE!", "There's nothing for you behind you. All that exists is what's ahead."];   
 		
 var index=0;
 var xiaBiao= 0;
