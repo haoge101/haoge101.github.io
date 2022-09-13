@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "It isn't what we say or think that defines us, but what we do."];   
+const txt  =["HI, THERE!", "Distance doesn't ruin a relationship. Doubts do."];   
 		
 var index=0;
 var xiaBiao= 0;
