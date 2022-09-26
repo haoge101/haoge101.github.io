@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "It's easy to straighten a tree when it's small, but it's difficult to stretch a tree when it's big."];   
+const txt  =["HI, THERE!", "Have you booked your ticket?"];   
 		
 var index=0;
 var xiaBiao= 0;
