@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "Hang in there! Victory is just around the corner!"];   
+const txt  =["HI, THERE!", "Patriotism is deeply rooted in the instincts and emotions of human being."];   
 		
 var index=0;
 var xiaBiao= 0;
