@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "When you really matter to someone, that person will always make time for you."];   
+const txt  =["HI, THERE!", "True masters tend to focus on one thing and do it well."];   
 		
 var index=0;
 var xiaBiao= 0;
