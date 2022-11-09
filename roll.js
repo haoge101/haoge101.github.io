@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "What we call "failure" is not falling down, but the staying down."];   
+const txt  =["HI, THERE!", "Studies serve for delight, for ornament and for ability."];   
 		
 var index=0;
 var xiaBiao= 0;
