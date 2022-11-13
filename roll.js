@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "Ultimately, it is the desire, not the desired, that we love."];   
+const txt  =["HI, THERE!", "Pain is inevitable. Suffering is optional."];   
 		
 var index=0;
 var xiaBiao= 0;
