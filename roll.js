@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "I'm trying everything."];   
+const txt  =["HI, THERE!", "The future is not ours to see. What will be will be."];   
 		
 var index=0;
 var xiaBiao= 0;
