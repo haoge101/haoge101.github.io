@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "Human beings are designed for many things, but loneliness isn't one of them."];   
+const txt  =["HI, THERE!", "Everybody deserves to be loved."];   
 		
 var index=0;
 var xiaBiao= 0;
