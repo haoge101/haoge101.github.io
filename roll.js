@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "On a quest, the clear path is never the right one."];   
+const txt  =["HI, THERE!", "Failure is the fog through which we glimpse triumph."];   
 		
 var index=0;
 var xiaBiao= 0;
