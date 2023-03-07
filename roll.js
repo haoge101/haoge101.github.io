@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "People always prepare for the worst but hope for the best."];   
+const txt  =["HI, THERE!", "Before finding the right person, the only thing you need to do is to make yourself good enough."];   
 		
 var index=0;
 var xiaBiao= 0;
