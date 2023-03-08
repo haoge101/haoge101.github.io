@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "Before finding the right person, the only thing you need to do is to make yourself good enough."];   
+const txt  =["HI, THERE!", "The most alluring thing a woman can have is confidence."];   
 		
 var index=0;
 var xiaBiao= 0;
