@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "It is remarkable how similar the pattern of love is to the pattern of insanity."];   
+const txt  =["HI, THERE!", "We all wonder about the path we didn't follow."];   
 		
 var index=0;
 var xiaBiao= 0;
