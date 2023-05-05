@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "Youth is not a time of life; it is a state of mind."];   
+const txt  =["HI, THERE!", "I love summer because it is full of life and hope. "];   
 		
 var index=0;
 var xiaBiao= 0;
