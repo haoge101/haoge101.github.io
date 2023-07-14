@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "Many people will walk in and out of your life, but only true friends will leave footprints in your heart."];   
+const txt  =["HI, THERE!", " Everybody is somebody. Even a nobody."];   
 		
 var index=0;
 var xiaBiao= 0;
