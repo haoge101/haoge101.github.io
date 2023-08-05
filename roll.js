@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "Each man is the architect of his own fate"];   
+const txt  =["HI, THERE!", "Our destiny offers not the cup of despair, but the chalice of opportunity."];   
 		
 var index=0;
 var xiaBiao= 0;
