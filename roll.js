@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "Great works are performed not by strength, but by perseverance."];   
+const txt  =["HI, THERE!", "Living without an aim is like sailing without a compass."];   
 		
 var index=0;
 var xiaBiao= 0;
