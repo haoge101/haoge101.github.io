@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "One meets its destiny on the road he takes to avoid it."];   
+const txt  =["HI, THERE!", " To improve is to change; to be perfect is to change often."];   
 		
 var index=0;
 var xiaBiao= 0;
