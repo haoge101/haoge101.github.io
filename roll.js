@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", " To improve is to change; to be perfect is to change often."];   
+const txt  =["HI, THERE!", " If you don't like something, change it. If you can't change it, change your attitude."];   
 		
 var index=0;
 var xiaBiao= 0;
