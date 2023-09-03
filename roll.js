@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", " If you don't like something, change it. If you can't change it, change your attitude."];   
+const txt  =["HI, THERE!", "Since we cannot change reality, let us change the eyes which see reality."];   
 		
 var index=0;
 var xiaBiao= 0;
