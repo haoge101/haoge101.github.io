@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "The measure of intelligence is the ability to change."];   
+const txt  =["HI, THERE!", "It is better to fail in originality than to succeed in imitation. "];   
 		
 var index=0;
 var xiaBiao= 0;
