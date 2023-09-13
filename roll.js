@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "It is better to fail in originality than to succeed in imitation. "];   
+const txt  =["HI, THERE!", "The only limit to our realization of tomorrow will be our doubts of today. "];   
 		
 var index=0;
 var xiaBiao= 0;
