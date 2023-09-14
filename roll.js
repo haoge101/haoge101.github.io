@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "The only limit to our realization of tomorrow will be our doubts of today. "];   
+const txt  =["HI, THERE!", "If you are not willing to risk the usual, you will have to settle for the ordinary."];   
 		
 var index=0;
 var xiaBiao= 0;
