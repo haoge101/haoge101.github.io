@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "Education is the most powerful weapon which you can use to change the world."];   
+const txt  =["HI, THERE!", "Before anything else, preparation is the key to success."];   
 		
 var index=0;
 var xiaBiao= 0;
