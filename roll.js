@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", " I alone can't change the world, but I can cast a stone across the waters to create many ripples."];   
+const txt  =["HI, THERE!", "The price of doing the same old thing is far higher than the price of change. "];   
 		
 var index=0;
 var xiaBiao= 0;
