@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "The price of doing the same old thing is far higher than the price of change. "];   
+const txt  =["HI, THERE!", "The road to success and the road to failure are almost exactly the same."];   
 		
 var index=0;
 var xiaBiao= 0;
