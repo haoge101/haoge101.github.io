@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", " There is nothing permanent except change."];   
+const txt  =["HI, THERE!", "The world is before you and you need not take it or leave it as it was when you came in."];   
 		
 var index=0;
 var xiaBiao= 0;
