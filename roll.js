@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "Forgiveness is the oil of relationships."];   
+const txt  =["HI, THERE!", "Everyone thinks of changing the world, but no one thinks of changing himself."];   
 		
 var index=0;
 var xiaBiao= 0;
