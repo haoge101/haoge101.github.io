@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "Everyone thinks of changing the world, but no one thinks of changing himself."];   
+const txt  =["HI, THERE!", " Play to your strengths. If you aren't great at something, do more of what you’re great at."];   
 		
 var index=0;
 var xiaBiao= 0;
