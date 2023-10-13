@@ -6,7 +6,7 @@ url = 'http://open.iciba.com/dsapi/'   # 目标网站，？wd=后面为参数，
 r = requests.get(url)    # 发送请求，将准备好的url与headers参数放入
 r = json.loads(r.text)    # 返回url地址
 r1 = r['picture4']
-r2 = requests.get(r1)
+r2 = requests.get(https://bing.img.run/1920x1080.php)
 open('./img.jpg', 'wb').write(r2.content)
 r3 = r['content']
 
