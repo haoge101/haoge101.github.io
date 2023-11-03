@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "There’s never any guarantee that anyone will like you. So if anyone likes you at all, you’ve already won."];   
+const txt  =["HI, THERE!", "If you’re offered a seat on a rocket ship, don’t ask what seat! Just get on."];   
 		
 var index=0;
 var xiaBiao= 0;
