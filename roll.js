@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "Eloquent speech is not from lip to ear, but rather from heart to heart."];   
+const txt  =["HI, THERE!", "The harder you work, the luckier you get. "];   
 		
 var index=0;
 var xiaBiao= 0;
