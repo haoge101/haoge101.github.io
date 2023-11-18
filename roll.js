@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "Quality performance starts with a positive attitude. "];   
+const txt  =["HI, THERE!", "A life lived by choice is a life of conscious action. A life lived by chance is a life of unconscious reaction."];   
 		
 var index=0;
 var xiaBiao= 0;
