@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "A life lived by choice is a life of conscious action. A life lived by chance is a life of unconscious reaction."];   
+const txt  =["HI, THERE!", " Life shrinks or expands in proportion to one's courage."];   
 		
 var index=0;
 var xiaBiao= 0;
