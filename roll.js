@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "A man, as a general rule, owes very little to what he is born with – a man is what he makes of himself."];   
+const txt  =["HI, THERE!", " Knowing is not enough; we must apply. "];   
 		
 var index=0;
 var xiaBiao= 0;
