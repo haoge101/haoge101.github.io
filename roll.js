@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", " If you don’t risk anything, you risk even more."];   
+const txt  =["HI, THERE!", "Intelligence without ambition is a bird without wings."];   
 		
 var index=0;
 var xiaBiao= 0;
