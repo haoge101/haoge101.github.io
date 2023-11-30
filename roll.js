@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "Intelligence without ambition is a bird without wings."];   
+const txt  =["HI, THERE!", "No one can make you feel inferior without your consent."];   
 		
 var index=0;
 var xiaBiao= 0;
