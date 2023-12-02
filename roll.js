@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", " When you undervalue what you do, the world will undervalue who you are. "];   
+const txt  =["HI, THERE!", "The man who has made up his mind to win will never say "impossible"."];   
 		
 var index=0;
 var xiaBiao= 0;
