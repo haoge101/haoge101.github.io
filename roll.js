@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "Beware of monotony; it's the mother of all deadly sins."];   
+const txt  =["HI, THERE!", " I'd rather regret the things I've done than regret the things I haven't done."];   
 		
 var index=0;
 var xiaBiao= 0;
