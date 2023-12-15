@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "Alone we can do so little; together we can do so much. "];   
+const txt  =["HI, THERE!", "Life is not always a matter of holding good cards, but sometimes, playing a poor hand well."];   
 		
 var index=0;
 var xiaBiao= 0;
