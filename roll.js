@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", " If I have seen further, it is by standing on the shoulders of giants. "];   
+const txt  =["HI, THERE!", " No one can whistle a symphony. It takes a whole orchestra to play it. "];   
 		
 var index=0;
 var xiaBiao= 0;
