@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "Coming together is a beginning, staying together is progress, and working together is success. "];   
+const txt  =["HI, THERE!", "Talent wins games, but teamwork and intelligence win championships."];   
 		
 var index=0;
 var xiaBiao= 0;
