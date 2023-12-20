@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "Talent wins games, but teamwork and intelligence win championships."];   
+const txt  =["HI, THERE!", " It is literally true that you can succeed best and quickest by helping others to succeed. "];   
 		
 var index=0;
 var xiaBiao= 0;
