@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", " It is literally true that you can succeed best and quickest by helping others to succeed. "];   
+const txt  =["HI, THERE!", "Love starts when we push aside our ego and make room for someone else."];   
 		
 var index=0;
 var xiaBiao= 0;
