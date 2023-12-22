@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "Love starts when we push aside our ego and make room for someone else."];   
+const txt  =["HI, THERE!", "At the courier station of Handan on Winter Solstice night, my arms clasping my knees, only my shadow is accompanying me."];   
 		
 var index=0;
 var xiaBiao= 0;
