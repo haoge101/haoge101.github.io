@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", " If you want to go fast, go alone. If you want to go far, go together. "];   
+const txt  =["HI, THERE!", " Success is best when it's shared. "];   
 		
 var index=0;
 var xiaBiao= 0;
