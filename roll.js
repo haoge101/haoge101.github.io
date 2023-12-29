@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "It is not in the still calm of life, or in the repose of a pacific station, that great characters are formed."];   
+const txt  =["HI, THERE!", "What I’ve really learned over time is that optimism is a very, very important part of leadership."];   
 		
 var index=0;
 var xiaBiao= 0;
