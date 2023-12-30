@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "What I’ve really learned over time is that optimism is a very, very important part of leadership."];   
+const txt  =["HI, THERE!", "The loving person makes other people feel good, and he is usually a happy person himself."];   
 		
 var index=0;
 var xiaBiao= 0;
