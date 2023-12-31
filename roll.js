@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "The loving person makes other people feel good, and he is usually a happy person himself."];   
+const txt  =["HI, THERE!", " Satisfaction lies in the effort, not in the attainment. "];   
 		
 var index=0;
 var xiaBiao= 0;
