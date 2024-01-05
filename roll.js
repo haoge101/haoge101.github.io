@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "There is no need to forgive, but it should not be forgotten."];   
+const txt  =["HI, THERE!", "Nothing is impossible to a willing heart."];   
 		
 var index=0;
 var xiaBiao= 0;
