@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "The establishment of civilization is not a machine but a thought."];   
+const txt  =["HI, THERE!", "Small deeds done are better than great deeds planned."];   
 		
 var index=0;
 var xiaBiao= 0;
