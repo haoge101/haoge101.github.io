@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "Small deeds done are better than great deeds planned."];   
+const txt  =["HI, THERE!", "The best preparation for tomorrow is doing your best today."];   
 		
 var index=0;
 var xiaBiao= 0;
