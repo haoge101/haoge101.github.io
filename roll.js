@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "When the moon was on the willow's top,We'd met after dusk."];   
+const txt  =["HI, THERE!", "Wisdom is not wisdom when it is derived from books alone."];   
 		
 var index=0;
 var xiaBiao= 0;
