@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "Wisdom is not wisdom when it is derived from books alone."];   
+const txt  =["HI, THERE!", "Patience is a bitter plant that produces sweet fruit."];   
 		
 var index=0;
 var xiaBiao= 0;
