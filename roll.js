@@ -1,7 +1,7 @@
 
 const text = document.querySelector('.texttype');
 
-const txt  =["HI, THERE!", "Patience is a bitter plant that produces sweet fruit."];   
+const txt  =["HI, THERE!", "Whatever you do, do not let go!"];   
 		
 var index=0;
 var xiaBiao= 0;
