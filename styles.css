@@ -6,7 +6,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh; /* 设置body至少撑满整个视口高度 */
-	font-family: 'Microsoft Yahei', sans-serif; /* 使用谷歌字体 */
+    font-family: 'Microsoft Yahei', sans-serif; /* 使用谷歌字体 */
 }
 
 header {
@@ -38,7 +38,7 @@ footer {
     background-color: #f0f0f0;
     padding: 20px;
     text-align: center;
-    position: fixed;
+    position: relative;
     left: 0;
     bottom: 0;
     width: 100%;
