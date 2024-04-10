@@ -5,6 +5,7 @@ body {
     padding: 0;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     min-height: 100vh; /* 设置body至少撑满整个视口高度 */
     font-family: 'Microsoft Yahei', sans-serif; /* 使用谷歌字体 */
 }
