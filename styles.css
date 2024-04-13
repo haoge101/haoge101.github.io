@@ -38,7 +38,7 @@ th, td {
 .customization-info {
     color: #666;
     position: absolute;
-    bottom: 60px; /* 调整这个值来控制离底部的距离 */
+    bottom: 10px; /* 调整这个值来控制离底部的距离 */
     width: 100%; /* 让它充满整个宽度 */
 }
 
