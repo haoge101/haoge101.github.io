@@ -40,10 +40,7 @@ th, td {
     position: absolute;
     bottom: 10px; /* 调整这个值来控制离底部的距离 */
     width: 100%; /* 让它充满整个宽度 */
-}
-.customization-info p span {
-    display: inline-block;
-    margin-left: 1em; /* 根据需要调整左边距 */
+    text-indent: 1em; 
 }
 
 footer {
