@@ -40,17 +40,14 @@ th, td {
     position: absolute;
     bottom: 50px; /* 调整这个值来控制离底部的距离 */
     width: 100%; /* 让它充满整个宽度 */
-    text-indent: 1em; /* 添加缩进，以适应段落文本 */
 }
 
 .customization-info p::before {
     content: "* "; /* 添加星号 */
+    display: block; /* 让星号作为块级元素显示 */
+    float: left; /* 左浮动 */
+    margin-right: 0.5em; /* 调整星号与文本之间的间距 */
 }
-
-.customization-info p::first-letter {
-    margin-left: -0.7em; /* 负的左边距以抵消星号的影响 */
-}
-
 
 footer {
     background-color: #f0f0f0;
