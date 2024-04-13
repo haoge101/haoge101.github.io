@@ -35,23 +35,21 @@ th, td {
     vertical-align: middle; /* 垂直居中对齐 */
 }
 
-.customization-info p {
+.customization-info {
     color: #666; /* 更深的灰色 */
     position: absolute;
     bottom: 50px; /* 调整这个值来控制离底部的距离 */
     width: 100%; /* 让它充满整个宽度 */
-    text-indent: 0.5em; /* 添加缩进，以适应段落文本 */
 }
 
-.customization-info p::before {
-    content: "* "; /* 添加星号 */
+.customization-info .star {
     float: left; /* 左浮动 */
-    margin-right: 0.5em; /* 调整星号与文本之间的间距 */
 }
 
-.customization-info p:not(:first-line) {
-    text-indent: 1em; /* 负缩进以抵消星号的影响 */
+.customization-info .text {
+    margin-left: 1em; /* 设置文本与星号之间的间距 */
 }
+
 
 footer {
     background-color: #f0f0f0;
