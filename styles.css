@@ -42,14 +42,6 @@ th, td {
     width: 100%; /* 让它充满整个宽度 */
 }
 
-.customization-info .star {
-    float: left; /* 左浮动 */
-}
-
-.customization-info .text {
-    margin-left: 1em; /* 设置文本与星号之间的间距 */
-}
-
 
 footer {
     background-color: #f0f0f0;
