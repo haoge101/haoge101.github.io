@@ -1,0 +1,86 @@
+/* styles.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh; /* 设置body至少撑满整个视口高度 */
+    font-family: 'Microsoft Yahei', sans-serif; /* 使用谷歌字体 */
+}
+
+header {
+    background-color: #333; /* 添加标题栏背景色 */
+    color: #fff; /* 设置标题栏文字颜色为白色 */
+    padding: 15px 20px; /* 调整标题栏内边距 */
+    font-size: 18px; /* 设置标题栏字体大小为24像素 */
+    margin-bottom: 20px; /* 添加标题栏下外边距 */
+}
+
+main {
+    flex: 1; /* 主要内容部分填充剩余空间 */
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 10px; /* 添加表格上外边距 */
+}
+
+th, td {
+    border-bottom: 1px solid #ddd; /* 添加表格下边框横线 */
+    padding: 8px; /* 调整表格单元格内边距 */
+    text-align: left;
+    vertical-align: middle; /* 垂直居中对齐 */
+}
+
+/*footer {
+    background-color: #f0f0f0;
+    padding-top: 20px;
+    text-align: center;
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}*/
+
+.footer-container {
+    background-color: transparent; /* 设置背景色为透明 */
+    padding-top: 20px;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center; /* 将内容水平居中对齐 */
+    align-items: center; /* 将内容垂直居中对齐 */
+    color: #666; /* 设置文本颜色为灰色 */
+}
+
+.left-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 左侧列内容垂直居中 */
+    margin-right: 20px; /* 添加右边距，使内容与图片分开 */
+}
+
+.left-column p {
+    margin: 0;
+}
+
+.left-column p + p {
+    margin-top: 10px; /* 添加间距 */
+}
+
+.footer-container a {
+    text-decoration: none; /* 移除超链接下划线 */
+    color: #666; /* 设置超链接颜色为灰色 */
+}
+
+.footer-container a:hover {
+    text-decoration: underline; /* 鼠标悬停时重新显示下划线 */
+}
+
+.footer-container img {
+    width: 128px; /* 设置图片宽度为100像素 */
+    height: auto; /* 根据宽度等比例调整高度 */
+}
