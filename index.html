@@ -1,42 +1,468 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Draft Survey App预览</title>
-	<link rel="stylesheet" href="styles.css"> <!-- 引入CSS样式表 -->
-</head>
-<body>
-    <header>
-        Draft Survey App预览
-    </header>
+<!doctype html>
+<html lang="en">
 
-    <main>
-        <!-- 添加软件下载链接 -->
-        <section>
-            <!-- <h2>Draft Survey App预览</h2> -->
-            <table>
-                <tr>
-                    <th>软件名称</th>
-                    <th>版本日期</th>
-                </tr>
-                <tr>
-                    <td><a href="Draft_Survey_V5.html">Draft Survey V5.0.0</a></td>
-                    <td>2025-09-20</td>
-                </tr>
-            </table>
-	</section>
-    </main>
-	<footer class="footer-container">
-		<div class="left-column">
-			<p><font color="#666">提供定制服务，扫码添加微信了解。</font></p>
-			<p>About <a href="http://dingzihao.cn">dingzihao.cn</a></p>
-		</div>
-		<img src="donate.png" alt="二维码">
-	</footer>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ship Loading & Stability Software</title>
+  <style>
+    :root {
+      --primary: #0f4c81;
+      --secondary: #f5f7fa;
+      --text: #222;
+      --muted: #666;
+      --card: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background: var(--secondary);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0f4c81, #1b6fa8);
+      color: #fff;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0 0 10px;
+      font-size: 2.2rem;
+      letter-spacing: 0.5px;
+    }
+
+    header p {
+      margin: 0;
+      font-size: 1.1rem;
+      opacity: 0.95;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title h2 {
+      margin: 0 0 10px;
+      font-size: 1.9rem;
+      color: var(--primary);
+    }
+
+    .section-title p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .feature-card {
+      background: var(--card);
+      border-radius: 14px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+
+      transition: transform 280ms ease, box-shadow 280ms ease;
+      will-change: transform;
+      cursor: default;
+      outline: none;
+    }
+
+    .feature-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      background: #ddd;
+
+      transition: transform 420ms cubic-bezier(.2, .9, .2, 1);
+      transform-origin: center;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 20px 48px rgba(8, 40, 80, 0.14);
+    }
+
+    .feature-card:focus,
+    .feature-card:focus-within {
+      transform: translateY(-6px) scale(1.01);
+      box-shadow: 0 14px 36px rgba(8, 40, 80, 0.12);
+      outline: 3px solid rgba(15, 76, 129, 0.10);
+      outline-offset: 6px;
+    }
+
+    .feature-card:hover img,
+    .feature-card:focus-within img {
+      transform: scale(1.06);
+    }
+
+    .feature-card .feature-content h3 {
+      transition: color 200ms ease, transform 200ms ease;
+    }
+
+    .feature-card:hover .feature-content h3,
+    .feature-card:focus-within .feature-content h3 {
+      color: #083a62;
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 480px) {}
+
+    .feature-content {
+      padding: 18px 20px 22px;
+      flex: 1;
+    }
+
+    .feature-content h3 {
+      margin: 0 0 8px;
+      font-size: 1.2rem;
+      color: var(--primary);
+    }
+
+    .feature-content p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .pricing {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+    }
+
+    .price-card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 28px 22px;
+      text-align: center;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    .price-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.3rem;
+      color: var(--primary);
+    }
+
+    .price {
+      font-size: 2rem;
+      font-weight: bold;
+      margin: 10px 0 6px;
+    }
+
+    .price span {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .price-note {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .contact {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 36px;
+      align-items: start;
+    }
+
+    .contact-card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 26px 22px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+      position: relative;
+      overflow: visible;
+    }
+
+    .contact-card h3 {
+      margin: 0 0 12px;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1.05rem;
+    }
+
+    .contact-card p {
+      margin: 6px 0;
+      color: var(--muted);
+    }
+
+    .qr {
+      width: 90%;
+      max-width: 320px;
+      margin: 0 auto;
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: max-height 0.32s ease, opacity 0.28s ease, margin-top 0.28s ease;
+    }
+
+    .qr img {
+      display: block;
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      max-height: 200px;
+      border-radius: 12px;
+    }
+
+    .wechat-card.active .qr {
+      max-height: 70vh;
+      opacity: 1;
+      margin-top: 14px;
+      margin-bottom: 14px;
+      overflow: auto;
+    }
+
+    .wechat-toggle {
+      font-size: 0.85rem;
+      cursor: pointer;
+      color: var(--primary);
+      background: transparent;
+      border: none;
+      padding: 0;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .contact-card a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .contact-card a:hover,
+    .contact-card a:focus {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 768px) {
+      section {
+        padding: 36px 16px;
+      }
+
+      .contact {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .contact-card {
+        padding: 20px;
+      }
+
+      .qr {
+        width: 220px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .wechat-card.active .qr {
+        max-height: 420px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .contact {
+        gap: 28px;
+      }
+
+      .wechat-card.active .qr {
+        margin-bottom: 20px;
+      }
+
+      .contact-card h3 {
+        font-size: 1rem;
+      }
+
+      .feature-card:hover,
+      .feature-card:focus-within {
+        transform: translateY(-6px) scale(1.01);
+      }
+
+      .feature-card:hover img,
+      .feature-card:focus-within img {
+        transform: scale(1.03);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Ship Draft Survey App</h1>
+    <p>Professional tools for Draft Survey, Ballast, Trim and Cargo Planning</p>
+  </header>
+
+  <section>
+    <div class="section-title">
+      <h2>Software Modules</h2>
+      <p>Six core functions designed for daily ship operation and cargo calculation</p>
+    </div>
+
+    <div class="features">
+      <div class="feature-card">
+        <img src="images/screenshot-draft-survey.png" alt="Draft Survey Screenshot" />
+        <div class="feature-content">
+          <h3>Draft Survey</h3>
+          <p>Used for ship draft survey calculation to determine cargo weight accurately.</p>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <img src="images/screenshot-sounding.png" alt="Sounding Screenshot" />
+        <div class="feature-content">
+          <h3>Sounding</h3>
+          <p>Ballast tank sounding calculation to determine ballast water volume.</p>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <img src="images/screenshot-trimming.png" alt="Trimming Screenshot" />
+        <div class="feature-content">
+          <h3>Trimming</h3>
+          <p>Trim adjustment during cargo loading and discharging operations.</p>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <img src="images/screenshot-prestowage.png" alt="Pre-Stowage Screenshot" />
+        <div class="feature-content">
+          <h3>Pre-Stowage Plan</h3>
+          <p>Calculate maximum cargo quantity under port and ship limitations.</p>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <img src="images/screenshot-arrival.png" alt="Arrival Condition Screenshot" />
+        <div class="feature-content">
+          <h3>Arrival Condition</h3>
+          <p>Calculate draft changes due to cargo variation and water density change.</p>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <img src="images/screenshot-misc.png" alt="Miscellaneous Screenshot" />
+        <div class="feature-content">
+          <h3>Miscellaneous</h3>
+          <p>Heel draft correction, interpolation calculation, and dew point calculation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">
+      <h2>Pricing</h2>
+      <p>Flexible license options to meet different usage needs</p>
+    </div>
+
+    <div class="pricing">
+      <div class="price-card">
+        <h3>3 Months</h3>
+        <div class="price">$300</div>
+        <div class="price-note">Short-term license</div>
+      </div>
+
+      <div class="price-card">
+        <h3>6 Months</h3>
+        <div class="price">$400</div>
+        <div class="price-note">Best value for half-year use</div>
+      </div>
+
+      <div class="price-card">
+        <h3>1 Year</h3>
+        <div class="price">$500</div>
+        <div class="price-note">Most popular option</div>
+      </div>
+
+      <div class="price-card">
+        <h3>Lifetime</h3>
+        <div class="price">$2000</div>
+        <div class="price-note">Permanent authorization</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">
+      <h2>Contact</h2>
+      <p>Get in touch for purchase, demo or technical support</p>
+    </div>
+
+    <div class="contact">
+      <div class="contact-card wechat-card">
+        <h3>WeChat <button class="wechat-toggle" title="Click to show QR">&#9432;</button></h3>
+        <p>WeChat ID: <strong>dingzihao_cn</strong></p>
+        <div class="qr" aria-hidden="true">
+          <img src="images/wechat-qr.png" alt="WeChat QR Code" />
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <h3>Email</h3>
+        <p><a
+            href="mailto:123@dingzihao.cn?subject=Inquiry%20about%20Ship%20Draft%20Survey%20App&body=Hello,%0AI%27d%20like%20to%20learn%20more%20about%20your%20Ship%20Draft%20Survey%20Application.%20Please%20send%20details%20on%20pricing%20and%20demo%20availability.%0AThank%20you."><strong>123@dingzihao.cn</strong></a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Ship Loading Software. All rights reserved.
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const toggle = document.querySelector('.wechat-toggle');
+      const card = document.querySelector('.wechat-card');
+      const qr = card && card.querySelector('.qr');
+
+      if (toggle && card) {
+        toggle.addEventListener('click', function () {
+          const isActive = card.classList.toggle('active');
+          if (qr) qr.setAttribute('aria-hidden', !isActive);
+          toggle.setAttribute('aria-expanded', isActive);
+        });
+      }
+    });
+  </script>
+
 </body>
 
 </html>
-
-
-
