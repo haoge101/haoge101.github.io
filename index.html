@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ship Loading & Stability Software</title>
+  <title>Ship Draft Survey App</title>
   <style>
     :root {
       --primary: #0f4c81;
@@ -80,11 +80,6 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
-
-      transition: transform 280ms ease, box-shadow 280ms ease;
-      will-change: transform;
-      cursor: default;
-      outline: none;
     }
 
     .feature-card img {
@@ -92,40 +87,7 @@
       height: 180px;
       object-fit: cover;
       background: #ddd;
-
-      transition: transform 420ms cubic-bezier(.2, .9, .2, 1);
-      transform-origin: center;
     }
-
-    .feature-card:hover {
-      transform: translateY(-10px) scale(1.02);
-      box-shadow: 0 20px 48px rgba(8, 40, 80, 0.14);
-    }
-
-    .feature-card:focus,
-    .feature-card:focus-within {
-      transform: translateY(-6px) scale(1.01);
-      box-shadow: 0 14px 36px rgba(8, 40, 80, 0.12);
-      outline: 3px solid rgba(15, 76, 129, 0.10);
-      outline-offset: 6px;
-    }
-
-    .feature-card:hover img,
-    .feature-card:focus-within img {
-      transform: scale(1.06);
-    }
-
-    .feature-card .feature-content h3 {
-      transition: color 200ms ease, transform 200ms ease;
-    }
-
-    .feature-card:hover .feature-content h3,
-    .feature-card:focus-within .feature-content h3 {
-      color: #083a62;
-      transform: translateY(-2px);
-    }
-
-    @media (max-width: 480px) {}
 
     .feature-content {
       padding: 18px 20px 22px;
@@ -227,6 +189,7 @@
       display: block;
       width: auto;
       max-width: 100%;
+      /* 不超过容器宽度 */
       height: auto;
       max-height: 200px;
       border-radius: 12px;
@@ -234,6 +197,7 @@
 
     .wechat-card.active .qr {
       max-height: 70vh;
+      /* >= img 的 max-height，保证图片能完整显示 */
       opacity: 1;
       margin-top: 14px;
       margin-bottom: 14px;
@@ -307,16 +271,6 @@
 
       .contact-card h3 {
         font-size: 1rem;
-      }
-
-      .feature-card:hover,
-      .feature-card:focus-within {
-        transform: translateY(-6px) scale(1.01);
-      }
-
-      .feature-card:hover img,
-      .feature-card:focus-within img {
-        transform: scale(1.03);
       }
     }
   </style>
