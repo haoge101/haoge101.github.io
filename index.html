@@ -67,6 +67,13 @@
       color: var(--muted);
     }
 
+    .lang-switch {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+
     .features {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -142,6 +149,13 @@
       color: var(--muted);
     }
 
+    .onboard-note {
+      text-align: center;
+      margin-top: 32px;
+      color: var(--primary);
+      font-weight: 600;
+    }
+
     .contact {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -189,7 +203,6 @@
       display: block;
       width: auto;
       max-width: 100%;
-      /* 不超过容器宽度 */
       height: auto;
       max-height: 200px;
       border-radius: 12px;
@@ -197,7 +210,6 @@
 
     .wechat-card.active .qr {
       max-height: 70vh;
-      /* >= img 的 max-height，保证图片能完整显示 */
       opacity: 1;
       margin-top: 14px;
       margin-bottom: 14px;
@@ -279,62 +291,92 @@
 <body>
 
   <header>
-    <h1>Ship Draft Survey App</h1>
-    <p>Professional tools for Draft Survey, Ballast, Trim and Cargo Planning</p>
+    <h1 class="lang-text" data-en="Ship Draft Survey App" data-zh="船舶水尺计量软件">Ship Draft Survey App</h1>
+    <p class="lang-text" data-en="Professional tools for Draft Survey, Ballast, Trim and Cargo Planning"
+      data-zh="专业的水尺计量、压载水测深、水尺和货物预配载工具">
+      Professional tools for Draft Survey, Ballast, Trim and Cargo Planning
+    </p>
+    <div class="lang-switch">
+      <select id="lang-select">
+        <option value="en">EN</option>
+        <option value="zh">中文</option>
+      </select>
+    </div>
   </header>
 
   <section>
     <div class="section-title">
-      <h2>Software Modules</h2>
-      <p>Six core functions designed for daily ship operation and cargo calculation</p>
+      <h2 class="lang-text" data-en="Software Modules" data-zh="软件模块">Software Modules</h2>
+      <p class="lang-text" data-en="Six core functions designed for daily ship operation and cargo calculation"
+        data-zh="六大核心功能，适用于日常船舶操作及货物计算">
+        Six core functions designed for daily ship operation and cargo calculation
+      </p>
     </div>
 
     <div class="features">
       <div class="feature-card">
         <img src="images/screenshot-draft-survey.png" alt="Draft Survey Screenshot" />
         <div class="feature-content">
-          <h3>Draft Survey</h3>
-          <p>Used for ship draft survey calculation to determine cargo weight accurately.</p>
+          <h3 class="lang-text" data-en="Draft Survey" data-zh="水尺计量">Draft Survey</h3>
+          <p class="lang-text" data-en="Used for ship draft survey calculation to determine cargo weight accurately."
+            data-zh="用于船舶水尺计量计算，准确确定货物重量。">
+            Used for ship draft survey calculation to determine cargo weight accurately.
+          </p>
         </div>
       </div>
 
       <div class="feature-card">
         <img src="images/screenshot-sounding.png" alt="Sounding Screenshot" />
         <div class="feature-content">
-          <h3>Sounding</h3>
-          <p>Ballast tank sounding calculation to determine ballast water volume.</p>
+          <h3 class="lang-text" data-en="Sounding" data-zh="水舱测深计算">Sounding</h3>
+          <p class="lang-text" data-en="Ballast tank sounding calculation to determine ballast water volume."
+            data-zh="压载水舱测深计算，确定压载水容量。">
+            Ballast tank sounding calculation to determine ballast water volume.
+          </p>
         </div>
       </div>
 
       <div class="feature-card">
         <img src="images/screenshot-trimming.png" alt="Trimming Screenshot" />
         <div class="feature-content">
-          <h3>Trimming</h3>
-          <p>Trim adjustment during cargo loading and discharging operations.</p>
+          <h3 class="lang-text" data-en="Trimming" data-zh="吃水修正">Trimming</h3>
+          <p class="lang-text" data-en="Trim adjustment during cargo loading and discharging operations."
+            data-zh="货物装卸过程中的吃水修正。">
+            Trim adjustment during cargo loading and discharging operations.
+          </p>
         </div>
       </div>
 
       <div class="feature-card">
         <img src="images/screenshot-prestowage.png" alt="Pre-Stowage Screenshot" />
         <div class="feature-content">
-          <h3>Pre-Stowage Plan</h3>
-          <p>Calculate maximum cargo quantity under port and ship limitations.</p>
+          <h3 class="lang-text" data-en="Pre-Stowage Plan" data-zh="预配载计划">Pre-Stowage Plan</h3>
+          <p class="lang-text" data-en="Calculate maximum cargo quantity under port and ship limitations."
+            data-zh="计算在港口和船舶限制下的最大装货量。">
+            Calculate maximum cargo quantity under port and ship limitations.
+          </p>
         </div>
       </div>
 
       <div class="feature-card">
         <img src="images/screenshot-arrival.png" alt="Arrival Condition Screenshot" />
         <div class="feature-content">
-          <h3>Arrival Condition</h3>
-          <p>Calculate draft changes due to cargo variation and water density change.</p>
+          <h3 class="lang-text" data-en="Arrival Condition" data-zh="到港状态">Arrival Condition</h3>
+          <p class="lang-text" data-en="Calculate draft changes due to cargo variation and water density change."
+            data-zh="计算货物载荷变化及水密度变化引起的吃水变化。">
+            Calculate draft changes due to cargo variation and water density change.
+          </p>
         </div>
       </div>
 
       <div class="feature-card">
         <img src="images/screenshot-misc.png" alt="Miscellaneous Screenshot" />
         <div class="feature-content">
-          <h3>Miscellaneous</h3>
-          <p>Heel draft correction, interpolation calculation, and dew point calculation.</p>
+          <h3 class="lang-text" data-en="Miscellaneous" data-zh="其他功能">Miscellaneous</h3>
+          <p class="lang-text" data-en="Heel draft correction, interpolation calculation, and dew point calculation."
+            data-zh="倾斜修正、内插计算及露点计算。">
+            Heel draft correction, interpolation calculation, and dew point calculation.
+          </p>
         </div>
       </div>
     </div>
@@ -342,46 +384,61 @@
 
   <section>
     <div class="section-title">
-      <h2>Pricing</h2>
-      <p>Flexible license options to meet different usage needs</p>
+      <h2 class="lang-text" data-en="Pricing" data-zh="价格">Pricing</h2>
+      <p class="lang-text" data-en="Flexible license options to meet different usage needs" data-zh="灵活的授权选项，满足不同使用需求">
+        Flexible license options to meet different usage needs
+      </p>
     </div>
 
     <div class="pricing">
       <div class="price-card">
-        <h3>3 Months</h3>
+        <h3 class="lang-text" data-en="3 Months" data-zh="3个月">3 Months</h3>
         <div class="price">$300</div>
-        <div class="price-note">Short-term license</div>
+        <div class="price-note lang-text" data-en="Short-term license" data-zh="短期授权">Short-term license</div>
       </div>
 
       <div class="price-card">
-        <h3>6 Months</h3>
+        <h3 class="lang-text" data-en="6 Months" data-zh="6个月">6 Months</h3>
         <div class="price">$400</div>
-        <div class="price-note">Best value for half-year use</div>
+        <div class="price-note lang-text" data-en="Best value for half-year use" data-zh="半年使用最佳">Best value for
+          half-year use</div>
       </div>
 
       <div class="price-card">
-        <h3>1 Year</h3>
+        <h3 class="lang-text" data-en="1 Year" data-zh="1年">1 Year</h3>
         <div class="price">$500</div>
-        <div class="price-note">Most popular option</div>
+        <div class="price-note lang-text" data-en="Most popular option" data-zh="最受欢迎选项">Most popular option</div>
       </div>
 
       <div class="price-card">
-        <h3>Lifetime</h3>
-        <div class="price">$2000</div>
-        <div class="price-note">Permanent authorization</div>
+        <h3 class="lang-text" data-en="Lifetime" data-zh="终身授权">Lifetime</h3>
+        <div class="price">
+          $1200 <span style="font-size:0.85rem; color:#f00; text-decoration:line-through;">$2000</span>
+        </div>
+        <div class="price-note lang-text" data-en="Permanent authorization" data-zh="永久授权">Permanent authorization</div>
       </div>
+    </div>
+
+    <div class="onboard-note lang-text" data-en="* On-board crews? $100 for 1 year. Thank you for your hard work!"
+      data-zh="* 在船上工作？1年仅需100美元。感谢您的辛苦付出！">
+      * On-board crews? $100 for 1 year. Thank you for your hard work!
     </div>
   </section>
 
   <section>
     <div class="section-title">
-      <h2>Contact</h2>
-      <p>Get in touch for purchase, demo or technical support</p>
+      <h2 class="lang-text" data-en="Contact" data-zh="联系我们">Contact</h2>
+      <p class="lang-text" data-en="Get in touch for purchase, demo or technical support" data-zh="购买、演示或技术支持请联系">
+        Get in touch for purchase, demo or technical support
+      </p>
     </div>
 
     <div class="contact">
       <div class="contact-card wechat-card">
-        <h3>WeChat <button class="wechat-toggle" title="Click to show QR">&#9432;</button></h3>
+        <h3>
+          <span class="lang-text" data-en="WeChat" data-zh="微信">WeChat</span>
+          <button class="wechat-toggle" title="Click to show QR">&#9432;</button>
+        </h3>
         <p>WeChat ID: <strong>dingzihao_cn</strong></p>
         <div class="qr" aria-hidden="true">
           <img src="images/wechat-qr.png" alt="WeChat QR Code" />
@@ -389,7 +446,7 @@
       </div>
 
       <div class="contact-card">
-        <h3>Email</h3>
+        <h3 class="lang-text" data-en="Email" data-zh="电子邮件">Email</h3>
         <p><a
             href="mailto:123@dingzihao.cn?subject=Inquiry%20about%20Ship%20Draft%20Survey%20App&body=Hello,%0AI%27d%20like%20to%20learn%20more%20about%20your%20Ship%20Draft%20Survey%20Application.%20Please%20send%20details%20on%20pricing%20and%20demo%20availability.%0AThank%20you."><strong>123@dingzihao.cn</strong></a>
         </p>
@@ -397,12 +454,18 @@
     </div>
   </section>
 
-  <footer>
-    © 2025 Ship Draft Survey App. All rights reserved.
+  <footer id="footer">
+    © <span id="year"></span> Ship Draft Survey App. All rights reserved.
   </footer>
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
+
+      const yearSpan = document.getElementById('year');
+      if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+      }
+
       const toggle = document.querySelector('.wechat-toggle');
       const card = document.querySelector('.wechat-card');
       const qr = card && card.querySelector('.qr');
@@ -414,8 +477,39 @@
           toggle.setAttribute('aria-expanded', isActive);
         });
       }
+
+      const langSelect = document.getElementById('lang-select');
+      const langEls = document.querySelectorAll('.lang-text');
+
+      function applyLang(lang) {
+        langEls.forEach(el => {
+          const text = el.getAttribute(`data-${lang}`);
+          if (text) el.textContent = text;
+        });
+        langSelect.value = lang;
+        localStorage.setItem('df-lang', lang);
+      }
+
+      let lang = localStorage.getItem('df-lang');
+
+      if (!lang) {
+        const browserLang =
+          (navigator.languages && navigator.languages[0]) ||
+          navigator.language ||
+          '';
+
+        lang = browserLang.toLowerCase().startsWith('zh') ? 'zh' : 'en';
+      }
+
+      applyLang(lang);
+
+      langSelect.addEventListener('change', function () {
+        applyLang(this.value);
+      });
+
     });
   </script>
+
 
 </body>
 
