@@ -186,6 +186,15 @@
       color: var(--muted);
     }
 
+    .demo-link {
+      color: inherit;
+      cursor: pointer;
+    }
+
+    .demo-link:hover {
+      text-decoration: underline;
+    }
+
     .qr {
       width: 90%;
       max-width: 320px;
@@ -428,9 +437,20 @@
   <section>
     <div class="section-title">
       <h2 class="lang-text" data-en="Contact" data-zh="联系我们">Contact</h2>
-      <p class="lang-text" data-en="Get in touch for purchase, demo or technical support" data-zh="购买、演示或技术支持请联系">
-        Get in touch for purchase, demo or technical support
+      <p>
+        <span class="lang-text" data-en="Get in touch for purchase, " data-zh="购买、">
+          Get in touch for purchase,
+        </span>
+
+        <a href="/demo.zip" class="demo-link lang-text" data-en="demo" data-zh="演示" target="_blank">
+          demo
+        </a>
+
+        <span class="lang-text" data-en=" or technical support" data-zh="或技术支持请联系">
+          or technical support
+        </span>
       </p>
+
     </div>
 
     <div class="contact">
