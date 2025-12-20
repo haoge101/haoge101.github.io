@@ -113,6 +113,22 @@
       font-size: 0.95rem;
     }
 
+    .feature-cover {
+      height: 180px;
+      background: #1b6fa8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .feature-num {
+      font-size: 5rem;
+      font-weight: 700;
+      color: #fff;
+      opacity: 0.95;
+      line-height: 1;
+    }
+
     .pricing {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -324,7 +340,9 @@
 
     <div class="features">
       <div class="feature-card">
-        <img src="images/screenshot-draft-survey.png" alt="Draft Survey Screenshot" />
+        <div class="feature-cover">
+          <span class="feature-num">1</span>
+        </div>
         <div class="feature-content">
           <h3 class="lang-text" data-en="Draft Survey" data-zh="水尺计量">Draft Survey</h3>
           <p class="lang-text" data-en="Used for ship draft survey calculation to determine cargo weight accurately."
@@ -335,7 +353,9 @@
       </div>
 
       <div class="feature-card">
-        <img src="images/screenshot-sounding.png" alt="Sounding Screenshot" />
+        <div class="feature-cover">
+          <span class="feature-num">2</span>
+        </div>
         <div class="feature-content">
           <h3 class="lang-text" data-en="Sounding" data-zh="水舱测深计算">Sounding</h3>
           <p class="lang-text" data-en="Ballast tank sounding calculation to determine ballast water volume."
@@ -346,7 +366,9 @@
       </div>
 
       <div class="feature-card">
-        <img src="images/screenshot-trimming.png" alt="Trimming Screenshot" />
+        <div class="feature-cover">
+          <span class="feature-num">3</span>
+        </div>
         <div class="feature-content">
           <h3 class="lang-text" data-en="Trimming" data-zh="吃水修正">Trimming</h3>
           <p class="lang-text" data-en="Trim adjustment during cargo loading and discharging operations."
@@ -357,7 +379,9 @@
       </div>
 
       <div class="feature-card">
-        <img src="images/screenshot-prestowage.png" alt="Pre-Stowage Screenshot" />
+        <div class="feature-cover">
+          <span class="feature-num">4</span>
+        </div>
         <div class="feature-content">
           <h3 class="lang-text" data-en="Pre-Stowage Plan" data-zh="预配载计划">Pre-Stowage Plan</h3>
           <p class="lang-text" data-en="Calculate maximum cargo quantity under port and ship limitations."
@@ -368,7 +392,9 @@
       </div>
 
       <div class="feature-card">
-        <img src="images/screenshot-arrival.png" alt="Arrival Condition Screenshot" />
+        <div class="feature-cover">
+          <span class="feature-num">5</span>
+        </div>
         <div class="feature-content">
           <h3 class="lang-text" data-en="Arrival Condition" data-zh="到港状态">Arrival Condition</h3>
           <p class="lang-text" data-en="Calculate draft changes due to cargo variation and water density change."
@@ -379,7 +405,9 @@
       </div>
 
       <div class="feature-card">
-        <img src="images/screenshot-misc.png" alt="Miscellaneous Screenshot" />
+        <div class="feature-cover">
+          <span class="feature-num">6</span>
+        </div>
         <div class="feature-content">
           <h3 class="lang-text" data-en="Miscellaneous" data-zh="其他功能">Miscellaneous</h3>
           <p class="lang-text" data-en="Heel draft correction, interpolation calculation, and dew point calculation."
@@ -428,8 +456,8 @@
       </div>
     </div>
 
-    <div class="onboard-note lang-text" data-en="* On-board crews? $100 for 1 year. Thank you for your hard work!"
-      data-zh="* 在船上工作？1年仅需100美元。感谢您的辛苦付出！">
+    <div class="onboard-note lang-text" data-en="* On-board crews? $200 for 1 year. Thank you for your hard work!"
+      data-zh="* 在船上工作？1年仅需200美元。感谢您的辛苦付出！">
       * On-board crews? $100 for 1 year. Thank you for your hard work!
     </div>
   </section>
