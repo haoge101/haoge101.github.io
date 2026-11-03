@@ -5,560 +5,457 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ship Draft Survey App</title>
+  <meta name="description" content="Draft survey, ballast sounding, trim, pre-stowage and arrival condition calculations built on your own ship's data. Windows and Android, works offline, PDF reports." />
+  <meta property="og:title" content="Ship Draft Survey App" />
+  <meta property="og:description" content="Draft survey, sounding, trim, pre-stowage and arrival calculations in one app, built on your own ship's data." />
+  <meta property="og:image" content="images/survey.jpg" />
   <style>
     :root {
+      --navy: #0b1220;
+      --navy-2: #121a2b;
+      --line: #243356;
+      --accent: #65c3ff;
       --primary: #0f4c81;
-      --secondary: #f5f7fa;
-      --text: #222;
-      --muted: #666;
-      --card: #ffffff;
+      --bg: #f5f7fa;
+      --card: #fff;
+      --text: #1b2433;
+      --muted: #5d6b82;
+      --radius: 14px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 70px; }
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", Helvetica, Arial, sans-serif;
       color: var(--text);
-      background: var(--secondary);
+      background: var(--bg);
       line-height: 1.6;
     }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; }
 
-    header {
-      background: linear-gradient(135deg, #0f4c81, #1b6fa8);
-      color: #fff;
-      padding: 60px 20px;
-      text-align: center;
+    .wrap { max-width: 1160px; margin: 0 auto; padding: 0 20px; }
+    section { padding: 72px 0; }
+    .eyebrow { color: var(--primary); font-weight: 700; font-size: .85rem; letter-spacing: .08em; text-transform: uppercase; margin: 0 0 8px; }
+    h2 { margin: 0 0 12px; font-size: clamp(1.6rem, 3.4vw, 2.2rem); line-height: 1.25; color: var(--navy); }
+    .lead { color: var(--muted); font-size: 1.05rem; max-width: 680px; margin: 0; }
+    .center { text-align: center; }
+    .center .lead { margin: 0 auto; }
+    .head { margin-bottom: 40px; }
+
+    /* nav */
+    nav {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(11, 18, 32, .92); backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+    nav .wrap { display: flex; align-items: center; gap: 22px; height: 58px; }
+    .brand { color: #fff; font-weight: 700; text-decoration: none; margin-right: auto; white-space: nowrap; }
+    nav a.link { color: #c4d0e4; text-decoration: none; font-size: .95rem; }
+    nav a.link:hover { color: #fff; }
+    #lang-select {
+      background: var(--navy-2); color: #fff; border: 1px solid var(--line);
+      border-radius: 8px; padding: 5px 8px; font-size: .9rem;
     }
 
-    header h1 {
-      margin: 0 0 10px;
-      font-size: 2.2rem;
-      letter-spacing: 0.5px;
+    .btn {
+      display: inline-block; text-decoration: none; font-weight: 600;
+      padding: 12px 22px; border-radius: 10px; border: 1px solid transparent;
+      transition: transform .15s, background .15s;
     }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: var(--accent); color: #00182b; }
+    .btn-ghost { border-color: #3a4a70; color: #fff; }
+    .btn-ghost:hover { background: rgba(255, 255, 255, .08); }
 
-    header p {
-      margin: 0;
-      font-size: 1.1rem;
-      opacity: 0.95;
+    /* hero */
+    .hero {
+      background: radial-gradient(1200px 500px at 70% -10%, #1b4a7a 0%, transparent 60%), var(--navy);
+      color: #fff; padding: 64px 0 0; overflow: hidden;
     }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.15; margin: 0 0 16px; max-width: 820px; }
+    .hero p.sub { font-size: 1.15rem; color: #c4d0e4; max-width: 680px; margin: 0 0 28px; }
+    .cta { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 22px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 44px; padding: 0; list-style: none; }
+    .chips li { border: 1px solid #2e3f66; color: #b7c6e0; border-radius: 999px; padding: 4px 12px; font-size: .85rem; }
 
-    section {
-      padding: 60px 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .section-title h2 {
-      margin: 0 0 10px;
-      font-size: 1.9rem;
-      color: var(--primary);
-    }
-
-    .section-title p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .lang-switch {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      z-index: 1000;
-    }
-
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-    }
-
-    .feature-card {
-      background: var(--card);
-      border-radius: 14px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+    .window {
+      background: var(--navy-2); border: 1px solid var(--line); border-radius: 12px 12px 0 0;
+      box-shadow: 0 -10px 60px rgba(101, 195, 255, .18), 0 30px 80px rgba(0, 0, 0, .5);
       overflow: hidden;
-      display: flex;
-      flex-direction: column;
     }
+    .window .bar { display: flex; gap: 7px; padding: 10px 14px; background: #0d1526; border-bottom: 1px solid var(--line); }
+    .window .bar i { width: 11px; height: 11px; border-radius: 50%; background: #2c3a5c; }
+    .hero .window { margin-bottom: -1px; max-height: 520px; }
+    .hero .window img { width: 100%; }
 
-    .feature-card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      background: #ddd;
+    /* problem */
+    .pains { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+    .pain { background: var(--card); border-radius: var(--radius); padding: 22px; box-shadow: 0 6px 20px rgba(0, 0, 0, .05); }
+    .pain b { display: block; color: var(--navy); margin-bottom: 4px; }
+    .pain span { color: var(--muted); font-size: .95rem; }
+    .pain .no { color: #c0392b; font-weight: 700; margin-right: 6px; }
+
+    /* showcase */
+    .showcase { background: var(--navy); color: #fff; }
+    .showcase h2 { color: #fff; }
+    .showcase .lead { color: #b7c6e0; }
+    .tabs { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 0 0 26px; }
+    .tabs button {
+      font: inherit; cursor: pointer; background: var(--navy-2); color: #c4d0e4;
+      border: 1px solid var(--line); border-radius: 999px; padding: 8px 18px;
     }
+    .tabs button[aria-selected="true"] { background: var(--accent); color: #00182b; border-color: var(--accent); font-weight: 700; }
+    .panel { display: grid; grid-template-columns: 1fr 1.7fr; gap: 32px; align-items: start; }
+    .panel h3 { margin: 0 0 8px; font-size: 1.5rem; color: var(--accent); }
+    .panel p { margin: 0 0 14px; color: #c4d0e4; }
+    .panel ul { margin: 0; padding-left: 20px; color: #dbe4f3; }
+    .panel li { margin-bottom: 6px; }
+    .panel .window { border-radius: 12px; }
+    .shot-frame { max-height: 560px; overflow: hidden; position: relative; }
+    .shot-frame::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 60px; background: linear-gradient(transparent, var(--navy-2)); }
 
-    .feature-content {
-      padding: 18px 20px 22px;
-      flex: 1;
+    /* features */
+    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 22px; }
+    .feat { background: var(--card); border-radius: var(--radius); padding: 26px; box-shadow: 0 6px 20px rgba(0, 0, 0, .05); }
+    .feat .ico { width: 42px; height: 42px; border-radius: 10px; background: #e6f1fb; color: var(--primary); display: grid; place-items: center; font-size: 1.3rem; margin-bottom: 12px; }
+    .feat h3 { margin: 0 0 6px; font-size: 1.1rem; color: var(--navy); }
+    .feat p { margin: 0; color: var(--muted); font-size: .95rem; }
+
+    /* mobile */
+    .mobile { background: #e9eff7; }
+    .mobile .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+    .phones { display: flex; gap: 18px; justify-content: center; }
+    .phone {
+      width: 200px; border: 7px solid #0b1220; border-radius: 28px; overflow: hidden;
+      background: #0b1220; box-shadow: 0 20px 50px rgba(11, 18, 32, .35);
     }
+    .phone:nth-child(2) { margin-top: 36px; }
+    .mobile ul { padding-left: 20px; color: var(--muted); }
 
-    .feature-content h3 {
-      margin: 0 0 8px;
-      font-size: 1.2rem;
-      color: var(--primary);
+    /* steps */
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 22px; counter-reset: s; }
+    .step { counter-increment: s; background: var(--card); border-radius: var(--radius); padding: 26px; box-shadow: 0 6px 20px rgba(0, 0, 0, .05); }
+    .step::before {
+      content: counter(s); display: grid; place-items: center; width: 34px; height: 34px;
+      border-radius: 50%; background: var(--primary); color: #fff; font-weight: 700; margin-bottom: 12px;
     }
+    .step h3 { margin: 0 0 6px; color: var(--navy); font-size: 1.1rem; }
+    .step p { margin: 0; color: var(--muted); font-size: .95rem; }
 
-    .feature-content p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
+    /* pricing */
+    .pricing { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 20px; }
+    .price-card { position: relative; background: var(--card); border-radius: 16px; padding: 28px 22px; text-align: center; box-shadow: 0 6px 20px rgba(0, 0, 0, .06); border: 2px solid transparent; }
+    .price-card.pop { border-color: var(--primary); }
+    .price-card .tag { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--primary); color: #fff; font-size: .75rem; padding: 2px 12px; border-radius: 999px; white-space: nowrap; }
+    .price-card h3 { margin: 0 0 8px; color: var(--primary); }
+    .price { font-size: 2rem; font-weight: 700; }
+    .price s { font-size: .9rem; color: #d33; font-weight: 400; }
+    .price-note { color: var(--muted); font-size: .9rem; }
+    .onboard-note { text-align: center; margin-top: 28px; color: var(--primary); font-weight: 600; }
 
-    .feature-cover {
-      height: 180px;
-      background: #1b6fa8;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+    /* contact */
+    .contact { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; max-width: 800px; margin: 0 auto; }
+    .contact-card { background: var(--card); border-radius: 16px; padding: 26px 22px; box-shadow: 0 6px 20px rgba(0, 0, 0, .06); }
+    .contact-card h3 { margin: 0 0 10px; color: var(--primary); font-size: 1.05rem; display: flex; align-items: center; gap: 8px; }
+    .contact-card p { margin: 6px 0; color: var(--muted); }
+    .contact-card a { font-weight: 600; text-decoration: none; }
+    .contact-card a:hover { text-decoration: underline; }
+    .qr { max-height: 0; opacity: 0; overflow: hidden; transition: max-height .3s, opacity .3s; text-align: center; }
+    .wechat-card.active .qr { max-height: 360px; opacity: 1; margin-top: 12px; }
+    .qr img { max-height: 240px; margin: 0 auto; border-radius: 10px; }
+    .wechat-toggle { cursor: pointer; background: #e6f1fb; color: var(--primary); border: 0; border-radius: 6px; padding: 3px 10px; font-size: .8rem; }
 
-    .feature-num {
-      font-size: 5rem;
-      font-weight: 700;
-      color: #fff;
-      opacity: 0.95;
-      line-height: 1;
-    }
+    footer { background: var(--navy); color: #8fa0bd; text-align: center; padding: 32px 20px; font-size: .85rem; }
+    footer p { margin: 4px 0; }
 
-    .pricing {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 24px;
-    }
+    .hero-phones { display: none; }
+    .shot-link { display: block; cursor: zoom-in; }
 
-    .price-card {
-      background: var(--card);
-      border-radius: 16px;
-      padding: 28px 22px;
-      text-align: center;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
-    }
-
-    .price-card h3 {
-      margin: 0 0 10px;
-      font-size: 1.3rem;
-      color: var(--primary);
-    }
-
-    .price {
-      font-size: 2rem;
-      font-weight: bold;
-      margin: 10px 0 6px;
-    }
-
-    .price span {
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-
-    .price-note {
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-
-    .onboard-note {
-      text-align: center;
-      margin-top: 32px;
-      color: var(--primary);
-      font-weight: 600;
-    }
-
-    .contact {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 36px;
-      align-items: start;
-    }
-
-    .contact-card {
-      background: var(--card);
-      border-radius: 16px;
-      padding: 26px 22px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
-      position: relative;
-      overflow: visible;
-    }
-
-    .contact-card h3 {
-      margin: 0 0 12px;
-      color: var(--primary);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 1.05rem;
-    }
-
-    .contact-card p {
-      margin: 6px 0;
-      color: var(--muted);
-    }
-
-    .demo-link {
-      color: inherit;
-      cursor: pointer;
-    }
-
-    .demo-link:hover {
-      text-decoration: underline;
-    }
-
-    .qr {
-      width: 90%;
-      max-width: 320px;
-      margin: 0 auto;
-      overflow: hidden;
-      max-height: 0;
-      opacity: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: max-height 0.32s ease, opacity 0.28s ease, margin-top 0.28s ease;
-    }
-
-    .qr img {
-      display: block;
-      width: auto;
-      max-width: 100%;
-      height: auto;
-      max-height: 200px;
-      border-radius: 12px;
-    }
-
-    .wechat-card.active .qr {
-      max-height: 70vh;
-      opacity: 1;
-      margin-top: 14px;
-      margin-bottom: 14px;
-      overflow: auto;
-    }
-
-    .wechat-toggle {
-      font-size: 0.85rem;
-      cursor: pointer;
-      color: var(--primary);
-      background: transparent;
-      border: none;
-      padding: 0;
-      line-height: 1;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .contact-card a {
-      color: var(--muted);
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    .contact-card a:hover,
-    .contact-card a:focus {
-      text-decoration: underline;
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px 20px;
-      color: var(--muted);
-      font-size: 0.85rem;
-    }
-
-    @media (max-width: 768px) {
-      section {
-        padding: 36px 16px;
-      }
-
-      .contact {
-        grid-template-columns: 1fr;
-        gap: 24px;
-      }
-
-      .contact-card {
-        padding: 20px;
-      }
-
-      .qr {
-        width: 220px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .wechat-card.active .qr {
-        max-height: 420px;
-      }
-    }
-
-    @media (max-width: 420px) {
-      .contact {
-        gap: 28px;
-      }
-
-      .wechat-card.active .qr {
-        margin-bottom: 20px;
-      }
-
-      .contact-card h3 {
-        font-size: 1rem;
-      }
+    @media (max-width: 860px) {
+      .hero .window { display: none; }
+      .hero-phones { display: flex; gap: 14px; justify-content: center; max-height: 430px; overflow: hidden; }
+      .hero-phones .phone { width: 180px; border-bottom: 0; border-radius: 26px 26px 0 0; margin-top: 0 !important; }
+      section { padding: 52px 0; }
+      .panel, .mobile .wrap { grid-template-columns: 1fr; }
+      nav a.link.hide-sm { display: none; }
+      .phone { width: 150px; }
     }
   </style>
 </head>
 
 <body>
 
-  <header>
-    <h1 class="lang-text" data-en="Ship Draft Survey App" data-zh="船舶水尺计量软件">Ship Draft Survey App</h1>
-    <p class="lang-text" data-en="Professional tools for Draft Survey, Ballast, Trim and Cargo Planning"
-      data-zh="专业的水尺计量、压载水测深、水尺和货物预配载工具">
-      Professional tools for Draft Survey, Ballast, Trim and Cargo Planning
-    </p>
-    <div class="lang-switch">
-      <select id="lang-select">
+  <nav>
+    <div class="wrap">
+      <a class="brand" href="#top">⚓ Ship Draft Survey</a>
+      <a class="link hide-sm i18n" href="#modules" data-en="Features" data-zh="功能">Features</a>
+      <a class="link hide-sm i18n" href="#pricing" data-en="Pricing" data-zh="价格">Pricing</a>
+      <a class="link i18n" href="/demo.html" target="_blank" data-en="Demo" data-zh="演示">Demo</a>
+      <select id="lang-select" aria-label="Language">
         <option value="en">EN</option>
         <option value="zh">中文</option>
       </select>
     </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="wrap">
+      <h1 class="i18n" data-en="Draft survey, sounding, trim and pre-stowage — in one app built on your own ship's data."
+        data-zh="水尺计量、测深、吃水修正、预配载——一个软件，基于你自己船舶的数据。">
+        Draft survey, sounding, trim and pre-stowage — in one app built on your own ship's data.
+      </h1>
+      <p class="sub i18n"
+        data-en="Enter the drafts, get cargo weight. No more hydrostatic tables, manual interpolation or patched-together spreadsheets."
+        data-zh="输入吃水，直接得出货重。不用再翻静水力表、手算内插，也不用再维护东拼西凑的 Excel。">
+        Enter the drafts, get cargo weight. No more hydrostatic tables, manual interpolation or patched-together spreadsheets.
+      </p>
+      <div class="cta">
+        <a class="btn btn-primary i18n" href="/demo.html" target="_blank" data-en="Try the live demo" data-zh="在线试用演示">Try the live demo</a>
+        <a class="btn btn-ghost i18n" href="#pricing" data-en="See pricing" data-zh="查看价格">See pricing</a>
+      </div>
+      <ul class="chips">
+        <li class="i18n" data-en="Windows + Android" data-zh="Windows + 安卓">Windows + Android</li>
+        <li class="i18n" data-en="Works offline at sea" data-zh="海上离线可用">Works offline at sea</li>
+        <li class="i18n" data-en="PDF report export" data-zh="导出 PDF 报告">PDF report export</li>
+        <li class="i18n" data-en="Per-vessel data" data-zh="按船定制数据">Per-vessel data</li>
+      </ul>
+      <div class="window">
+        <div class="bar"><i></i><i></i><i></i></div>
+        <img src="images/survey.jpg" width="1600" height="1412" alt="Draft Survey screen showing drafts entered and displacement, cargo weight results" />
+      </div>
+      <div class="hero-phones" aria-hidden="true">
+        <div class="phone"><img src="images/m_top.jpg" width="780" height="1688" alt="" /></div>
+        <div class="phone"><img src="images/m_results.jpg" width="780" height="1688" alt="" /></div>
+      </div>
+    </div>
   </header>
 
   <section>
-    <div class="section-title">
-      <h2 class="lang-text" data-en="Software Modules" data-zh="软件模块">Software Modules</h2>
-      <p class="lang-text" data-en="Six core functions designed for daily ship operation and cargo calculation"
-        data-zh="六大核心功能，适用于日常船舶操作及货物计算">
-        Six core functions designed for daily ship operation and cargo calculation
-      </p>
+    <div class="wrap">
+      <div class="head center">
+        <p class="eyebrow i18n" data-en="Sound familiar?" data-zh="是不是很熟悉？">Sound familiar?</p>
+        <h2 class="i18n" data-en="Draft survey shouldn't take an afternoon" data-zh="水尺计量不该花掉你一下午">Draft survey shouldn't take an afternoon</h2>
+      </div>
+      <div class="pains">
+        <div class="pain"><b><span class="no">✕</span><span class="i18n" data-en="Flipping through hydrostatic tables" data-zh="翻静水力表">Flipping through hydrostatic tables</span></b><span class="i18n" data-en="Interpolating displacement, TPC and LCF by hand, for every draft, every time." data-zh="每次都要手工内插排水量、TPC、漂心。">Interpolating displacement, TPC and LCF by hand, for every draft, every time.</span></div>
+        <div class="pain"><b><span class="no">✕</span><span class="i18n" data-en="Fragile spreadsheets" data-zh="脆弱的 Excel">Fragile spreadsheets</span></b><span class="i18n" data-en="One overwritten formula and the cargo figure is wrong — and nobody notices." data-zh="一个公式被覆盖，货重就错了，还没人发现。">One overwritten formula and the cargo figure is wrong — and nobody notices.</span></div>
+        <div class="pain"><b><span class="no">✕</span><span class="i18n" data-en="Surveys that don't connect" data-zh="各步骤互不相通">Surveys that don't connect</span></b><span class="i18n" data-en="Initial, intermediate and final figures re-typed into separate sheets for sounding, trim and stowage." data-zh="初始、中间、最终数据要在测深、纵倾、配载里反复重新录入。">Initial, intermediate and final figures re-typed into separate sheets for sounding, trim and stowage.</span></div>
+      </div>
     </div>
+  </section>
 
-    <div class="features">
-      <div class="feature-card">
-        <div class="feature-cover">
-          <span class="feature-num">1</span>
-        </div>
-        <div class="feature-content">
-          <h3 class="lang-text" data-en="Draft Survey" data-zh="水尺计量">Draft Survey</h3>
-          <p class="lang-text" data-en="Used for ship draft survey calculation to determine cargo weight accurately."
-            data-zh="用于船舶水尺计量计算，准确确定货物重量。">
-            Used for ship draft survey calculation to determine cargo weight accurately.
-          </p>
-        </div>
+  <section class="showcase" id="modules">
+    <div class="wrap">
+      <div class="head center">
+        <p class="eyebrow i18n" style="color:var(--accent)" data-en="Six modules" data-zh="六大模块">Six modules</p>
+        <h2 class="i18n" data-en="See what you get — real screens, real results" data-zh="真实界面，真实计算结果">See what you get — real screens, real results</h2>
+        <p class="lead i18n" data-en="Every screenshot below is the actual app, with values calculated." data-zh="下面每张图都是软件的真实界面和计算结果。">Every screenshot below is the actual app, with values calculated.</p>
       </div>
 
-      <div class="feature-card">
-        <div class="feature-cover">
-          <span class="feature-num">2</span>
+      <div class="tabs" role="tablist" id="tabs"></div>
+
+      <div class="panel">
+        <div>
+          <h3 id="p-title"></h3>
+          <p id="p-desc"></p>
+          <ul id="p-list"></ul>
         </div>
-        <div class="feature-content">
-          <h3 class="lang-text" data-en="Sounding" data-zh="水舱测深计算">Sounding</h3>
-          <p class="lang-text" data-en="Ballast tank sounding calculation to determine ballast water volume."
-            data-zh="压载水舱测深计算，确定压载水容量。">
-            Ballast tank sounding calculation to determine ballast water volume.
-          </p>
+        <div class="window">
+          <div class="bar"><i></i><i></i><i></i></div>
+          <div class="shot-frame"><a id="p-link" class="shot-link" href="images/survey.jpg" target="_blank" rel="noopener"><img id="p-img" src="images/survey.jpg" width="1600" height="1412" alt="" /></a></div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="feature-card">
-        <div class="feature-cover">
-          <span class="feature-num">3</span>
-        </div>
-        <div class="feature-content">
-          <h3 class="lang-text" data-en="Trimming" data-zh="吃水修正">Trimming</h3>
-          <p class="lang-text" data-en="Trim adjustment during cargo loading and discharging operations."
-            data-zh="货物装卸过程中的吃水修正。">
-            Trim adjustment during cargo loading and discharging operations.
-          </p>
-        </div>
+  <section id="why">
+    <div class="wrap">
+      <div class="head center">
+        <p class="eyebrow i18n" data-en="Why it works" data-zh="为什么好用">Why it works</p>
+        <h2 class="i18n" data-en="Built for the way a survey is actually done" data-zh="按真实水尺作业流程设计">Built for the way a survey is actually done</h2>
       </div>
-
-      <div class="feature-card">
-        <div class="feature-cover">
-          <span class="feature-num">4</span>
-        </div>
-        <div class="feature-content">
-          <h3 class="lang-text" data-en="Pre-Stowage Plan" data-zh="预配载计划">Pre-Stowage Plan</h3>
-          <p class="lang-text" data-en="Calculate maximum cargo quantity under port and ship limitations."
-            data-zh="计算在港口和船舶限制下的最大装货量。">
-            Calculate maximum cargo quantity under port and ship limitations.
-          </p>
-        </div>
+      <div class="features">
+        <div class="feat"><div class="ico">🚢</div><h3 class="i18n" data-en="Your ship, your tables" data-zh="你的船，你的数据">Your ship, your tables</h3><p class="i18n" data-en="Each app is built with one vessel's hydrostatic, tank and trim tables. Just pick the drafts — the lookups and interpolation are done for you." data-zh="每个软件内置一艘船的静水力表、舱容表和纵倾修正表。只管输入吃水，查表和内插由软件完成。">Each app is built with one vessel's hydrostatic, tank and trim tables. Just pick the drafts — the lookups and interpolation are done for you.</p></div>
+        <div class="feat"><div class="ico">🔗</div><h3 class="i18n" data-en="Surveys that feed each other" data-zh="数据一路贯通">Surveys that feed each other</h3><p class="i18n" data-en="Initial, Int1, Int2 and Final surveys flow straight into Sounding and Trimming with one tap — no re-typing." data-zh="初始、中间1、中间2、最终水尺一键导入测深和吃水修正，无需重复录入。">Initial, Int1, Int2 and Final surveys flow straight into Sounding and Trimming with one tap — no re-typing.</p></div>
+        <div class="feat"><div class="ico">📄</div><h3 class="i18n" data-en="One-tap PDF report" data-zh="一键 PDF 报告">One-tap PDF report</h3><p class="i18n" data-en="Print or save the survey as a clean PDF report, and import / export your data to continue on another device." data-zh="一键打印或保存为 PDF 报告，数据可导入导出，换设备也能接着做。">Print or save the survey as a clean PDF report, and import / export your data to continue on another device.</p></div>
+        <div class="feat"><div class="ico">📡</div><h3 class="i18n" data-en="Works offline" data-zh="离线可用">Works offline</h3><p class="i18n" data-en="Activate once online; after that the calculations run on your device — no signal needed on the bridge or at anchor." data-zh="联网激活一次，之后计算全部在本机运行，驾驶台或锚地没有信号也能用。">Activate once online; after that the calculations run on your device — no signal needed on the bridge or at anchor.</p></div>
+        <div class="feat"><div class="ico">🔒</div><h3 class="i18n" data-en="Ship data stays protected" data-zh="船舶数据受保护">Ship data stays protected</h3><p class="i18n" data-en="Ship files are encrypted and only open with a valid licence, so your vessel's data isn't passed around." data-zh="船舶档案加密保存，只有授权后才能解开，船舶资料不会随意外传。">Ship files are encrypted and only open with a valid licence, so your vessel's data isn't passed around.</p></div>
+        <div class="feat"><div class="ico">🌗</div><h3 class="i18n" data-en="Dark or light, desktop or phone" data-zh="深浅主题，电脑手机通用">Dark or light, desktop or phone</h3><p class="i18n" data-en="A night-friendly dark theme for the bridge, a light one for the office, and a layout that fits a phone screen." data-zh="驾驶台夜间友好的深色主题，办公室用浅色主题，手机屏幕同样好用。">A night-friendly dark theme for the bridge, a light one for the office, and a layout that fits a phone screen.</p></div>
       </div>
+    </div>
+  </section>
 
-      <div class="feature-card">
-        <div class="feature-cover">
-          <span class="feature-num">5</span>
-        </div>
-        <div class="feature-content">
-          <h3 class="lang-text" data-en="Arrival Condition" data-zh="到港状态">Arrival Condition</h3>
-          <p class="lang-text" data-en="Calculate draft changes due to cargo variation and water density change."
-            data-zh="计算货物载荷变化及水密度变化引起的吃水变化。">
-            Calculate draft changes due to cargo variation and water density change.
-          </p>
-        </div>
+  <section class="mobile">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow i18n" data-en="On your phone too" data-zh="手机也能用">On your phone too</p>
+        <h2 class="i18n" data-en="Take it to the draft marks" data-zh="带着它去读水尺">Take it to the draft marks</h2>
+        <p class="lead i18n" data-en="The Android version uses the same calculations and the same layout, scaled for a phone." data-zh="安卓版与电脑版计算一致、界面一致，并针对手机屏幕做了适配。">The Android version uses the same calculations and the same layout, scaled for a phone.</p>
+        <ul>
+          <li class="i18n" data-en="Read the marks, type the drafts, see the cargo weight on the spot" data-zh="现场读完水尺就输入，立刻看到货重">Read the marks, type the drafts, see the cargo weight on the spot</li>
+          <li class="i18n" data-en="Export the data and finish the report on the PC later" data-zh="数据导出后，回电脑上继续出报告">Export the data and finish the report on the PC later</li>
+        </ul>
       </div>
-
-      <div class="feature-card">
-        <div class="feature-cover">
-          <span class="feature-num">6</span>
-        </div>
-        <div class="feature-content">
-          <h3 class="lang-text" data-en="Miscellaneous" data-zh="其他功能">Miscellaneous</h3>
-          <p class="lang-text" data-en="Heel draft correction, interpolation calculation, and dew point calculation."
-            data-zh="倾斜修正、内插计算及露点计算。">
-            Heel draft correction, interpolation calculation, and dew point calculation.
-          </p>
-        </div>
+      <div class="phones">
+        <div class="phone"><img src="images/m_top.jpg" loading="lazy" width="780" height="1688" alt="Mobile view: draft inputs" /></div>
+        <div class="phone"><img src="images/m_results.jpg" loading="lazy" width="780" height="1688" alt="Mobile view: calculated results" /></div>
       </div>
     </div>
   </section>
 
   <section>
-    <div class="section-title">
-      <h2 class="lang-text" data-en="Pricing" data-zh="价格">Pricing</h2>
-      <p class="lang-text" data-en="Flexible license options to meet different usage needs" data-zh="灵活的授权选项，满足不同使用需求">
-        Flexible license options to meet different usage needs
-      </p>
-    </div>
-
-    <div class="pricing">
-      <div class="price-card">
-        <h3 class="lang-text" data-en="3 Months" data-zh="3个月">3 Months</h3>
-        <div class="price">$300</div>
-        <div class="price-note lang-text" data-en="Short-term license" data-zh="短期授权">Short-term license</div>
+    <div class="wrap">
+      <div class="head center">
+        <p class="eyebrow i18n" data-en="How it works" data-zh="使用流程">How it works</p>
+        <h2 class="i18n" data-en="From drafts to report in three steps" data-zh="三步从吃水读数到报告">From drafts to report in three steps</h2>
       </div>
-
-      <div class="price-card">
-        <h3 class="lang-text" data-en="6 Months" data-zh="6个月">6 Months</h3>
-        <div class="price">$400</div>
-        <div class="price-note lang-text" data-en="Best value for half-year use" data-zh="半年使用最佳">Best value for
-          half-year use</div>
-      </div>
-
-      <div class="price-card">
-        <h3 class="lang-text" data-en="1 Year" data-zh="1年">1 Year</h3>
-        <div class="price">$500</div>
-        <div class="price-note lang-text" data-en="Most popular option" data-zh="最受欢迎选项">Most popular option</div>
-      </div>
-
-      <div class="price-card">
-        <h3 class="lang-text" data-en="Lifetime" data-zh="终身授权">Lifetime</h3>
-        <div class="price">
-          $1200 <span style="font-size:0.85rem; color:#f00; text-decoration:line-through;">$2000</span>
-        </div>
-        <div class="price-note lang-text" data-en="Permanent authorization" data-zh="永久授权">Permanent authorization</div>
-      </div>
-    </div>
-
-    <div class="onboard-note lang-text" data-en="* On-board crews? $200 for 1 year. Thank you for your hard work!"
-      data-zh="* 在船上工作？1年仅需200美元。感谢您的辛苦付出！">
-      * On-board crews? $100 for 1 year. Thank you for your hard work!
-    </div>
-  </section>
-
-  <section>
-    <div class="section-title">
-      <h2 class="lang-text" data-en="Contact" data-zh="联系我们">Contact</h2>
-      <p>
-        <span class="lang-text" data-en="Get in touch for purchase, " data-zh="购买、">
-          Get in touch for purchase,
-        </span>
-
-        <a href="/demo.html" class="demo-link lang-text" data-en="demo" data-zh="演示" target="_blank">
-          demo
-        </a>
-
-        <span class="lang-text" data-en=" or technical support" data-zh="或技术支持请联系">
-          or technical support
-        </span>
-      </p>
-
-    </div>
-
-    <div class="contact">
-      <div class="contact-card wechat-card">
-        <h3>
-          <span class="lang-text" data-en="WeChat" data-zh="微信">WeChat</span>
-          <button class="wechat-toggle" title="Click to show QR">&#9432;</button>
-        </h3>
-        <p>WeChat ID: <strong>dingzihao_cn</strong></p>
-        <div class="qr" aria-hidden="true">
-          <img src="images/wechat-qr.png" alt="WeChat QR Code" />
-        </div>
-      </div>
-
-      <div class="contact-card">
-        <h3 class="lang-text" data-en="Email" data-zh="电子邮件">Email</h3>
-        <p><a
-            href="mailto:123@dingzihao.cn?subject=Inquiry%20about%20Ship%20Draft%20Survey%20App&body=Hello,%0AI%27d%20like%20to%20learn%20more%20about%20your%20Ship%20Draft%20Survey%20Application.%20Please%20send%20details%20on%20pricing%20and%20demo%20availability.%0AThank%20you."><strong>123@dingzihao.cn</strong></a>
-        </p>
+      <div class="steps">
+        <div class="step"><h3 class="i18n" data-en="Enter the readings" data-zh="输入读数">Enter the readings</h3><p class="i18n" data-en="Six draft marks, density and the ship's constant, fuel, water and ballast." data-zh="六面吃水、密度，以及船舶常数、油水压载。">Six draft marks, density and the ship's constant, fuel, water and ballast.</p></div>
+        <div class="step"><h3 class="i18n" data-en="Press Compute" data-zh="点击计算">Press Compute</h3><p class="i18n" data-en="Heel, trim, hog/sag, corrected drafts, displacement and cargo weight appear instantly." data-zh="横倾、纵倾、中拱中垂、修正吃水、排水量和货重即时得出。">Heel, trim, hog/sag, corrected drafts, displacement and cargo weight appear instantly.</p></div>
+        <div class="step"><h3 class="i18n" data-en="Print the report" data-zh="打印报告">Print the report</h3><p class="i18n" data-en="Compare with the B/L figure, then save or print a PDF for the file." data-zh="与提单数对比，然后保存或打印 PDF 存档。">Compare with the B/L figure, then save or print a PDF for the file.</p></div>
       </div>
     </div>
   </section>
 
-  <footer id="footer">
-    © <span id="year"></span> Ship Draft Survey App. All rights reserved.
+  <section id="pricing" style="padding-top:0">
+    <div class="wrap">
+      <div class="head center">
+        <p class="eyebrow i18n" data-en="Pricing" data-zh="价格">Pricing</p>
+        <h2 class="i18n" data-en="Flexible licences" data-zh="灵活的授权方式">Flexible licences</h2>
+        <p class="lead i18n" data-en="Pick the term that fits your contract or voyage." data-zh="按合同期或航次选择合适的期限。">Pick the term that fits your contract or voyage.</p>
+      </div>
+      <div class="pricing">
+        <div class="price-card"><h3 class="i18n" data-en="3 Months" data-zh="3个月">3 Months</h3><div class="price">$300</div><div class="price-note i18n" data-en="Short-term licence" data-zh="短期授权">Short-term licence</div></div>
+        <div class="price-card"><h3 class="i18n" data-en="6 Months" data-zh="6个月">6 Months</h3><div class="price">$400</div><div class="price-note i18n" data-en="Best value for half-year use" data-zh="半年使用最佳">Best value for half-year use</div></div>
+        <div class="price-card pop"><span class="tag i18n" data-en="Most popular" data-zh="最受欢迎">Most popular</span><h3 class="i18n" data-en="1 Year" data-zh="1年">1 Year</h3><div class="price">$500</div><div class="price-note i18n" data-en="Full year, every module" data-zh="全年使用，全部模块">Full year, every module</div></div>
+        <div class="price-card"><h3 class="i18n" data-en="Lifetime" data-zh="终身授权">Lifetime</h3><div class="price">$1200 <s>$2000</s></div><div class="price-note i18n" data-en="Permanent authorisation" data-zh="永久授权">Permanent authorisation</div></div>
+      </div>
+      <div class="onboard-note i18n" data-en="On-board crew? $200 for 1 year. Thank you for your hard work!" data-zh="在船上工作？1年仅需200美元。感谢您的辛苦付出！">On-board crew? $200 for 1 year. Thank you for your hard work!</div>
+    </div>
+  </section>
+
+  <section id="contact" style="background:#e9eff7">
+    <div class="wrap">
+      <div class="head center">
+        <h2 class="i18n" data-en="Get in touch" data-zh="联系我们">Get in touch</h2>
+        <p class="lead"><span class="i18n" data-en="For purchase, " data-zh="购买、">For purchase, </span><a href="/demo.html" target="_blank" class="i18n" data-en="demo" data-zh="演示">demo</a><span class="i18n" data-en=" or technical support" data-zh="或技术支持请联系">or technical support</span></p>
+      </div>
+      <div class="contact">
+        <div class="contact-card wechat-card">
+          <h3><span class="i18n" data-en="WeChat" data-zh="微信">WeChat</span> <button class="wechat-toggle i18n" data-en="Show QR" data-zh="显示二维码" aria-expanded="false">Show QR</button></h3>
+          <p>WeChat ID: <strong>dingzihao_cn</strong></p>
+          <div class="qr"><img src="images/wechat-qr.png" loading="lazy" alt="WeChat QR code" /></div>
+        </div>
+        <div class="contact-card">
+          <h3 class="i18n" data-en="Email" data-zh="电子邮件">Email</h3>
+          <p><a href="mailto:123@dingzihao.cn?subject=Inquiry%20about%20Ship%20Draft%20Survey%20App&body=Hello,%0AI%27d%20like%20to%20learn%20more%20about%20your%20Ship%20Draft%20Survey%20Application.%20Please%20send%20details%20on%20pricing%20and%20demo%20availability.%0AThank%20you.">123@dingzihao.cn</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© <span id="year"></span> Ship Draft Survey App. All rights reserved.</p>
+    <p class="i18n" data-en="For estimation. Always follow the vessel's official hydrostatic &amp; stability book for certified figures." data-zh="仅供估算参考，正式数据请以船舶官方静水力及稳性资料为准。">For estimation. Always follow the vessel's official hydrostatic &amp; stability book for certified figures.</p>
   </footer>
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
+      var $ = function (s) { return document.querySelector(s); };
+      $('#year').textContent = new Date().getFullYear();
 
-      const yearSpan = document.getElementById('year');
-      if (yearSpan) {
-        yearSpan.textContent = new Date().getFullYear();
-      }
+      /* ---- module showcase content ---- */
+      var MODULES = [
+        { id: 'survey', img: 'images/survey.jpg',
+          en: ['Draft Survey', 'Enter six draft marks, density and weights on board; get displacement and cargo weight with every correction applied.',
+            ['Heel, trim and hog/sag worked out automatically', 'Corrected F / M / A drafts and quarter mean', '1st and 2nd trim corrections, TPC, density correction', 'Compare with B/L or shore figure; Initial, Int1, Int2 and Final surveys']],
+          zh: ['水尺计量', '输入六面吃水、密度和船上油水压载，得出已应用所有修正的排水量和货重。',
+            ['自动计算横倾、纵倾和中拱中垂', '修正后的首/中/尾吃水及四分之一平均吃水', '一次、二次纵倾修正，TPC，密度修正', '与提单数/岸上数对比；含初始、中间1、中间2、最终水尺']] },
+        { id: 'sounding', img: 'images/sounding.jpg',
+          en: ['Sounding', 'Type the sounding of each ballast tank; the app corrects for trim and returns volume and weight.',
+            ['Pulls drafts and trim from any survey stage in one tap', 'Tank table lookup with trim correction', 'Weight at actual density, total ballast and running log']],
+          zh: ['水舱测深', '输入各压载舱测深，软件按纵倾修正后给出容积和重量。',
+            ['一键导入任一水尺阶段的吃水和纵倾', '查舱容表并做纵倾修正', '按实际密度换算重量，自动汇总压载总量并记录日志']] },
+        { id: 'trimming', img: 'images/trimming.jpg',
+          en: ['Trimming', 'Plan how to spread the cargo between holds to reach the required trim.',
+            ['Change in fore and aft draft per 100 t for each hold', 'Cargo distribution to hit the required trim', 'Predicted final DF / DM / DA and trim']],
+          zh: ['吃水修正', '规划货物在各舱的分配，达到所需纵倾。',
+            ['每个货舱每100吨对首尾吃水的影响', '为达到目标纵倾而计算的各舱装货量', '预测最终首/中/尾吃水和纵倾']] },
+        { id: 'stowage', img: 'images/stowage.jpg',
+          en: ['Pre-Stowage Plan', 'Find the maximum cargo you can load under the draft limits of both ports.',
+            ['Load port and discharge port limits side by side', 'Summer / tropical load line, density, draft limit', 'Bunkers, water, ballast and port stay consumption', 'Capacity-limited and draft-limited cargo in one result']],
+          zh: ['预配载计划', '在装卸两港的吃水限制下，算出最大可装货量。',
+            ['装货港、卸货港限制并列显示', '夏季/热带载重线、密度、吃水限制', '燃油、淡水、压载和停港消耗', '一次给出舱容限制和吃水限制下的货量']] },
+        { id: 'arrival', img: 'images/arrival.jpg',
+          en: ['Arrival Condition', 'See how the drafts change once cargo, stores and water density change.',
+            ['Add or remove loads at a chosen tank location', 'Draft change from density difference', 'Final DF / DM / DA ready to check against port limits']],
+          zh: ['到港状态', '货物、物料和水密度变化后，吃水会怎样变化。',
+            ['在指定舱位增减载荷', '计算水密度变化引起的吃水变化', '得出最终首/中/尾吃水，可对照港口限制']] },
+        { id: 'misc', img: 'images/misc.jpg',
+          en: ['Miscellaneous', 'The small calculators you always need on a survey.',
+            ['Draft by heel: opposite-side draft from the observed side', 'Linear interpolation', 'Dew point from dry and wet bulb']],
+          zh: ['其他功能', '水尺作业中随手要用的小工具。',
+            ['倾斜修正：由一侧吃水推算另一侧吃水', '线性内插计算', '由干湿球温度计算露点']] }
+      ];
 
-      const toggle = document.querySelector('.wechat-toggle');
-      const card = document.querySelector('.wechat-card');
-      const qr = card && card.querySelector('.qr');
-
-      if (toggle && card) {
-        toggle.addEventListener('click', function () {
-          const isActive = card.classList.toggle('active');
-          if (qr) qr.setAttribute('aria-hidden', !isActive);
-          toggle.setAttribute('aria-expanded', isActive);
-        });
-      }
-
-      const langSelect = document.getElementById('lang-select');
-      const langEls = document.querySelectorAll('.lang-text');
-
-      function applyLang(lang) {
-        langEls.forEach(el => {
-          const text = el.getAttribute(`data-${lang}`);
-          if (text) el.textContent = text;
-        });
-        langSelect.value = lang;
-        localStorage.setItem('df-lang', lang);
-      }
-
-      let lang = localStorage.getItem('df-lang');
-
-      if (!lang) {
-        const browserLang =
-          (navigator.languages && navigator.languages[0]) ||
-          navigator.language ||
-          '';
-
-        lang = browserLang.toLowerCase().startsWith('zh') ? 'zh' : 'en';
-      }
-
-      applyLang(lang);
-
-      langSelect.addEventListener('change', function () {
-        applyLang(this.value);
+      var lang = 'en';
+      var tabs = $('#tabs'), cur = 0;
+      MODULES.forEach(function (m, i) {
+        var b = document.createElement('button');
+        b.setAttribute('role', 'tab'); b.dataset.i = i;
+        b.addEventListener('click', function () { cur = i; renderModule(); });
+        tabs.appendChild(b);
       });
 
+      function renderModule() {
+        var m = MODULES[cur], t = m[lang];
+        [].forEach.call(tabs.children, function (b, i) {
+          b.textContent = MODULES[i][lang][0];
+          b.setAttribute('aria-selected', i === cur);
+        });
+        $('#p-title').textContent = t[0];
+        $('#p-desc').textContent = t[1];
+        var ul = $('#p-list'); ul.innerHTML = '';
+        t[2].forEach(function (x) { var li = document.createElement('li'); li.textContent = x; ul.appendChild(li); });
+        $('#p-link').href = m.img; var img = $('#p-img'); img.src = m.img; img.alt = t[0] + ' screen';
+      }
+
+      /* ---- language ---- */
+      var els = document.querySelectorAll('.i18n');
+      var sel = $('#lang-select');
+      function applyLang(l) {
+        lang = l;
+        els.forEach(function (el) {
+          var s = el.getAttribute('data-' + l);
+          if (s) el.innerHTML = s;
+        });
+        document.documentElement.lang = l === 'zh' ? 'zh-CN' : 'en';
+        sel.value = l;
+        try { localStorage.setItem('df-lang', l); } catch (e) { }
+        renderModule();
+      }
+      var saved = null;
+      try { saved = localStorage.getItem('df-lang'); } catch (e) { }
+      if (!saved) {
+        var bl = (navigator.languages && navigator.languages[0]) || navigator.language || '';
+        saved = bl.toLowerCase().indexOf('zh') === 0 ? 'zh' : 'en';
+      }
+      applyLang(saved);
+      sel.addEventListener('change', function () { applyLang(this.value); });
+
+      /* ---- wechat QR ---- */
+      var card = $('.wechat-card'), tg = $('.wechat-toggle');
+      tg.addEventListener('click', function () {
+        var on = card.classList.toggle('active');
+        tg.setAttribute('aria-expanded', on);
+        tg.setAttribute('data-en', on ? 'Hide QR' : 'Show QR');
+        tg.setAttribute('data-zh', on ? '收起二维码' : '显示二维码');
+        tg.textContent = tg.getAttribute('data-' + lang);
+      });
     });
   </script>
-
-
 </body>
 
 </html>
