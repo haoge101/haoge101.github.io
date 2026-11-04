@@ -90,6 +90,9 @@
     .hero .window { margin-bottom: -1px; max-height: 520px; }
     .hero .window img { width: 100%; }
 
+    .video-box { max-width: 960px; margin: 0 auto; border-radius: 14px; overflow: hidden; background: #000; box-shadow: 0 20px 60px rgba(11, 18, 32, .25); aspect-ratio: 16/9; }
+    .video-box video { width: 100%; height: 100%; display: block; }
+
     /* problem */
     .pains { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
     .pain { background: var(--card); border-radius: var(--radius); padding: 22px; box-shadow: 0 6px 20px rgba(0, 0, 0, .05); }
@@ -192,7 +195,7 @@
       <a class="brand" href="#top">⚓ Ship Draft Survey</a>
       <a class="link hide-sm i18n" href="#modules" data-en="Features" data-zh="功能">Features</a>
       <a class="link hide-sm i18n" href="#pricing" data-en="Pricing" data-zh="价格">Pricing</a>
-      <a class="link i18n" href="/demo.html" target="_blank" data-en="Demo" data-zh="演示">Demo</a>
+      <a class="link i18n" href="#video" data-en="Demo video" data-zh="演示视频">Demo video</a>
       <select id="lang-select" aria-label="Language">
         <option value="en">EN</option>
         <option value="zh">中文</option>
@@ -212,7 +215,7 @@
         Enter the drafts, get cargo weight. No more hydrostatic tables, manual interpolation or patched-together spreadsheets.
       </p>
       <div class="cta">
-        <a class="btn btn-primary i18n" href="/demo.html" target="_blank" data-en="Try the live demo" data-zh="在线试用演示">Try the live demo</a>
+        <a class="btn btn-primary i18n" href="#video" data-en="Watch the demo" data-zh="观看演示视频">Watch the demo</a>
         <a class="btn btn-ghost i18n" href="#pricing" data-en="See pricing" data-zh="查看价格">See pricing</a>
       </div>
       <ul class="chips">
@@ -231,6 +234,21 @@
       </div>
     </div>
   </header>
+
+  <section id="video" style="padding-bottom:24px">
+    <div class="wrap">
+      <div class="head center">
+        <p class="eyebrow i18n" data-en="Demo video" data-zh="演示视频">Demo video</p>
+        <h2 class="i18n" data-en="Watch a full survey, start to finish" data-zh="完整看一遍水尺计量的过程">Watch a full survey, start to finish</h2>
+        <p class="lead i18n" data-en="About 2.5 minutes, with Chinese and English captions. Uses a fictional demo vessel." data-zh="约 2 分半钟，中英文字幕对照。演示使用的是虚构船舶。">About 2.5 minutes, with Chinese and English captions. Uses a fictional demo vessel.</p>
+      </div>
+      <div class="video-box">
+        <video controls preload="metadata" playsinline poster="images/demo-poster.jpg">
+          <source src="video/demo.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+  </section>
 
   <section>
     <div class="wrap">
@@ -340,7 +358,7 @@
     <div class="wrap">
       <div class="head center">
         <h2 class="i18n" data-en="Get in touch" data-zh="联系我们">Get in touch</h2>
-        <p class="lead"><span class="i18n" data-en="For purchase, " data-zh="购买、">For purchase, </span><a href="/demo.html" target="_blank" class="i18n" data-en="demo" data-zh="演示">demo</a><span class="i18n" data-en=" or technical support" data-zh="或技术支持请联系">or technical support</span></p>
+        <p class="lead"><span class="i18n" data-en="For purchase, " data-zh="购买、">For purchase, </span><a href="#video" class="i18n" data-en="demo" data-zh="演示">demo</a><span class="i18n" data-en=" or technical support" data-zh="或技术支持请联系">or technical support</span></p>
       </div>
       <div class="contact">
         <div class="contact-card wechat-card">
